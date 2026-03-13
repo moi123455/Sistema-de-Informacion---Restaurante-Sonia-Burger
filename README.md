@@ -17,7 +17,7 @@
 ## Instalación (local)
 1. Instalar **WAMP** (o XAMPP).  
 2. Copiar el proyecto a `www` (o `htdocs`).  
-3. Importar `database.sql` en **phpMyAdmin**.  
+3. Importar `database.sql` o crear uno en **phpMyAdmin**.  
 4. Configurar `config.php` con credenciales MySQL y ruta base.  
 5. Abrir `http://localhost/tu-proyecto` en el navegador.
 
@@ -32,12 +32,7 @@
 
 ## Mantenimiento y roadmap
 - Backups diarios; revisión semanal de logs.  
-- Próximas mejoras: **Node.js** para sincronización, inventario por receta, CI/CD.
+- Próximas mejoras: **Node.js** para sincronización, inventario por receta, manejo desde multiples dispositivos como pc secundaria y tablet.
 
-## Contribuir
-1. Fork → branch `feature/tu-cambio` → PR.  
-2. Abrir issue describiendo bug o mejora.
-
-## Licencia y contacto
-- **Licencia:** MIT (opcional)  
-- **Contacto:** Moisés — `tu.email@example.com`
+## contacto
+- **Contacto:** Moises David Rojas Millan — `Moidavidtr@gmail.com`
