@@ -1,0 +1,403 @@
+[23-Feb-2026 22:18:38 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'tasa' in 'field list' in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php:13
+Stack trace:
+#0 F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php(13): mysqli->query('SELECT tasa FRO...')
+#1 F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php(53): obtenerTasaBCV(Object(mysqli))
+#2 {main}
+  thrown in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php on line 13
+[23-Feb-2026 22:26:02 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:26:02 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:29:21 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:29:21 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:29:52 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:29:52 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:30:04 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:30:04 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:31:42 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:31:42 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:31:43 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:31:43 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:44:51 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:44:51 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:44:59 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:44:59 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:11 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:11 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:18 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:18 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:21 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:21 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:23 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:23 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:25 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:25 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:30 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:30 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:31 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:31 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:34 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:34 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:35 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:35 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:37 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:37 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:39 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:39 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:39 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:39 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:40 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:40 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:40 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:40 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:40 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:40 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:41 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:41 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:41 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:41 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:41 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:41 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:42 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:42 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:42 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:42 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:45 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:45 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:45:55 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:45:55 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:47:19 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:47:19 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:26 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:26 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:33 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:33 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:34 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:34 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:35 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:35 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:35 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:35 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:36 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:36 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:36 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:36 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:37 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:37 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:37 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:37 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:51:39 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:51:39 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:57:19 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:57:19 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:57:26 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:57:26 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 22:57:58 UTC] obtenerTasaBCV query error for column valor: Unknown column 'valor' in 'field list'
+[23-Feb-2026 22:57:58 UTC] obtenerTasaBCV query error for column rate: Unknown column 'rate' in 'field list'
+[23-Feb-2026 23:01:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php:113
+Stack trace:
+#0 F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php(113): mysqli->query('SELECT id FROM ...')
+#1 {main}
+  thrown in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php on line 113
+[23-Feb-2026 23:02:04 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php:113
+Stack trace:
+#0 F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php(113): mysqli->query('SELECT id FROM ...')
+#1 {main}
+  thrown in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php on line 113
+[23-Feb-2026 23:04:51 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php:113
+Stack trace:
+#0 F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php(113): mysqli->query('SELECT id FROM ...')
+#1 {main}
+  thrown in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php on line 113
+[24-Feb-2026 01:10:48 UTC] obtenerTasaBCV: no se pudo leer valor numérico; usando 1.0
+[24-Feb-2026 01:10:51 UTC] obtenerTasaBCV: no se pudo leer valor numérico; usando 1.0
+[24-Feb-2026 01:10:59 UTC] obtenerTasaBCV: no se pudo leer valor numérico; usando 1.0
+[24-Feb-2026 01:15:02 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='500.10', valor_float=500.1
+[24-Feb-2026 01:15:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='500.10', valor_float=500.1
+[24-Feb-2026 01:15:22 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='500.10', valor_float=500.1
+[24-Feb-2026 01:15:34 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[24-Feb-2026 01:16:02 UTC] obtenerTasaBCV: no se pudo leer valor numérico; usando 1.0
+[24-Feb-2026 01:16:11 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='500.00', valor_float=500
+[24-Feb-2026 01:16:15 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='500.00', valor_float=500
+[24-Feb-2026 01:16:18 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='500.00', valor_float=500
+[24-Feb-2026 01:16:25 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[24-Feb-2026 01:16:56 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:17:33 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:17:47 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:17:50 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:17:56 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:17:59 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:18:00 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:18:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:18:10 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:18:30 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:18:33 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:18:38 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:18:40 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:18:46 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php:228
+Stack trace:
+#0 F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php(228): mysqli_stmt->bind_param('sssds si', 'tthh', 'hhtt', 'Servicio', 10.0, 'uploads/tthh.pn...', 'Activo', 16)
+#1 {main}
+  thrown in F:\wamp64\www\Restaurante_Sonia_Burger\Restaurante_SB\gerente\Seccion_gerencia\Menu\menu.php on line 228
+[24-Feb-2026 01:18:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:19:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:19:24 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:19:30 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:19:31 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:19:32 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:20:02 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:20:13 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:20:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:20:15 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:20:28 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:25:22 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:25:34 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:41:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:41:15 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:41:18 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:51:51 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:52:40 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:52:58 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:53:02 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:53:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:53:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:53:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:53:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 01:53:09 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:01:04 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:07:29 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:07:34 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:07:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:07:56 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:07:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:08:19 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:08:49 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:08:54 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:09:03 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:09:05 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:09:06 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:09:32 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:09:34 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:09:39 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:10:04 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:10:19 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:10:30 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:10:42 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:10:43 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:10:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:10:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:10:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:11:09 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:14:56 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:15:03 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:15:13 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:15:40 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:15:42 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:15:44 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:16:58 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:19:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:19:24 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:19:38 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:19:40 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:19:44 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:19:59 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:20:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:20:06 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:20:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:20:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:39:32 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:40:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:40:59 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='510.00', valor_float=510
+[24-Feb-2026 03:41:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[24-Feb-2026 03:41:23 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 03:41:47 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 03:41:47 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 03:41:48 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 03:42:04 UTC] obtenerTasaBCV: no se pudo leer valor numérico; usando 1.0
+[24-Feb-2026 03:42:12 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 03:44:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 03:53:56 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 03:54:00 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 03:54:04 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:00:36 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:01:03 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:01:06 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:01:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:01:11 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:01:13 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:13:41 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:13:41 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:13:42 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:13:42 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:13:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:14:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:14:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:14:38 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:14:58 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:15:30 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:15:51 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:15:51 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:15:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:15:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:16:12 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:16:25 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:17:17 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:17:19 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:17:20 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:17:24 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:17:26 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:17:28 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:22:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:22:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:22:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:22:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:24:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:24:57 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:25:17 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:25:17 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:25:24 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:25:24 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:25:33 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:25:33 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:25:42 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:25:42 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:50 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:50 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:50 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:50 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:51 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:51 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:52 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:52 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:52 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:52 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:52 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:52 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:54 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:54 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:54 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:54 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:54 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 04:46:54 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:07 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:18 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:16:18 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:19:19 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:19:19 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:19:21 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:19:21 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:19:28 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:19:28 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:19:59 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:19:59 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:20:58 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:20:58 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:21:00 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:21:00 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:24:46 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:24:46 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:24:48 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:24:48 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:25:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:25:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:25:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:25:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:25:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:25:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[24-Feb-2026 06:25:56 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[25-Feb-2026 02:49:15 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[25-Feb-2026 02:49:15 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[25-Feb-2026 02:49:35 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[25-Feb-2026 02:49:35 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='480.00', valor_float=480
+[25-Feb-2026 02:58:56 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[25-Feb-2026 02:58:56 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[25-Feb-2026 02:59:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[25-Feb-2026 04:52:44 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[25-Feb-2026 04:52:44 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[25-Feb-2026 04:52:49 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[25-Feb-2026 04:52:49 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[26-Feb-2026 14:25:22 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[26-Feb-2026 14:25:22 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[26-Feb-2026 14:25:29 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[26-Feb-2026 14:25:29 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 04:19:09 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 04:19:09 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 04:19:31 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 04:19:32 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 04:19:32 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 05:50:13 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 05:50:13 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 05:56:03 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 05:56:03 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 05:59:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 18:43:35 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 18:43:36 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 18:43:50 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[27-Feb-2026 18:43:50 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:03:01 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:03:33 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:03:33 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:03:39 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:03:46 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:03:46 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:03:50 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:08:41 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:08:41 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:09:20 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:34:39 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 03:35:04 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 04:09:08 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 04:09:12 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[01-Mar-2026 04:09:13 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:39:04 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:39:04 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:40:37 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:40:37 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:47:10 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:47:10 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:58:39 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:58:39 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:58:43 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 05:58:44 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 06:07:29 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 06:07:29 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 06:08:09 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[02-Mar-2026 06:08:09 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[03-Mar-2026 17:26:36 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[03-Mar-2026 17:26:36 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[03-Mar-2026 19:26:43 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[03-Mar-2026 19:26:43 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.00', valor_float=410
+[04-Mar-2026 03:21:28 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[04-Mar-2026 03:21:28 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:12:13 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:12:13 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:17:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:17:53 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:28:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:28:14 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:28:27 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:28:27 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:28:35 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:31:33 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15
+[05-Mar-2026 02:31:33 UTC] obtenerTasaBCV: columna usada=monto_bs, raw='410.15', valor_float=410.15

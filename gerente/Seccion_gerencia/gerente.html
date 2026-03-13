@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del Gerente</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-container d-flex justify-content-between align-items-center p-3 bg-dark text-white">
+    <img src="logo.png" alt="Logo" class="cajero-logo" />
+    <h1 class="header-title">Panel del Gerente</h1>
+    <div class="d-flex align-items-center">
+      <span id="userName" class="fw-bold me-2">NombreUsuario</span>
+      <span id="roleBadge" class="badge bg-warning text-dark me-3">Gerente</span>
+      <a href="/Restaurante_Sonia_Burger/Restaurante_SB/logout.php" id="btnLogout" class="btn btn-danger btn-sm">Cerrar sesión</a>
+    </div>
+  </div>
+</header>
+
+
+<main class="container mt-5">
+
+  <!-- Recuadro central con tasa del dólar -->
+  <div class="card text-center mb-4 tasa-card">
+    <div class="card-body">
+      <h4 class="card-title">Tasa del dólar actual</h4>
+      <p id="tasaDolar" class="fs-3 fw-bold text-primary">No establecida</p>
+     <button id="btnCambiarTasa" class="btn btn-warning btn-sm me-2">Cambiar tasa</button>
+<button id="btnQuitarTasa" class="btn btn-danger btn-sm">Quitar tasa</button>
+
+      
+    </div>
+  </div>
+
+  <!-- Botones principales -->
+  <div class="row text-center">
+  <div class="col-md-3 mb-3">
+  <a href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_gerencia/RegistroUsuarios/usuarios.html" 
+     class="btn btn-primary w-100" id="btnUsuarios">
+    Registro de Usuarios
+  </a>
+</div>
+
+    <div class="col-md-3 mb-3">
+  <a href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_gerencia/Menu/menu.html" 
+     class="btn btn-success w-100" id="btnMenu">
+    Gestión del Menú
+  </a>
+</div>
+
+    <div class="col-md-3 mb-3">
+  <a href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_gerencia/inventario/inventario.html" 
+     class="btn btn-info w-100" id="btnInventario">
+    Gestión del inventario
+  </a>
+</div>
+    <div class="col-md-3 mb-3">
+      <a href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_gerencia/reportes/reportes.html" 
+     class="btn btn-secondary w-100" id="btnReportes">
+    Gestión de Reportes
+  </a>
+    </div>
+  </div>
+
+<!-- Botón Vista del Cajero -->
+<div class="row text-center mt-4">
+  <div class="col-md-12">
+    <a href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_cajero/cajero.html" 
+       class="btn btn-dark w-50" id="btnVistaCajero">
+      Vista del Cajero
+    </a>
+  </div>
+</div>
+
+
+</main>
+
+<!-- Modal: Establecer tasa -->
+<div class="modal fade" id="modalTasa" tabindex="-1" aria-labelledby="modalTasaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTasaLabel">Establecer tasa del dólar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formTasa">
+          <div class="mb-3">
+            <label for="monto_bs" class="form-label">Precio del dólar en Bs</label>
+            <input type="number" step="0.01" class="form-control" id="monto_bs" name="monto_bs" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar tasa</button>
+        </form>
+        <div id="tasaMsg" class="alert alert-success mt-2" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: No autorizado -->
+<div class="modal fade" id="modalNoAutorizado" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Acceso denegado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p>No estás autorizado para ingresar en esta sección.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btnNoAutorizadoCerrar" type="button" class="btn btn-primary">Ir a mi vista</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  // Ajusta este array en cada página:
+  const allowedRoles = ['gerente']; // <-- en gerente.html
+  const cajeroHome = '/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_cajero/cajero.html';
+  const loginPage = '/Restaurante_Sonia_Burger/Restaurante_SB/index.html';
+
+  fetch('/Restaurante_Sonia_Burger/Restaurante_SB/verificar_sesion.php', { credentials: 'include' })
+    .then(r => r.json())
+    .then(data => {
+      if (!data || !data.logged) {
+        window.location.href = loginPage;
+        return;
+      }
+      const role = data.role || '';
+      if (!allowedRoles.includes(role)) {
+        const modalEl = document.getElementById('modalNoAutorizado');
+        const modal = new bootstrap.Modal(modalEl);
+        modal.show();
+
+        document.getElementById('btnNoAutorizadoCerrar').addEventListener('click', function() {
+          modal.hide();
+          if (role === 'cajero') window.location.href = cajeroHome;
+          else window.location.href = loginPage;
+        });
+
+        setTimeout(() => {
+          if (role === 'cajero') window.location.href = cajeroHome;
+          else window.location.href = loginPage;
+        }, 3000);
+      }
+    })
+    .catch(err => {
+      console.error('Error verificando sesión:', err);
+      window.location.href = loginPage;
+    });
+})();
+</script>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+let tasaBCV = 0;
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Obtener tasa al cargar
+  fetch("/Restaurante_Sonia_Burger/Restaurante_SB/get_tasa.php")
+    .then(response => response.json())
+    .then(data => {
+      if (!data.exists) {
+        var modal = new bootstrap.Modal(document.getElementById("modalTasa"));
+        modal.show();
+      } else {
+        tasaBCV = parseFloat(data.monto_bs);
+        document.getElementById("tasaDolar").textContent = tasaBCV + " Bs";
+      }
+    })
+    .catch(err => console.error("Error en get_tasa:", err));
+
+  // Evento para guardar tasa
+  document.getElementById("formTasa").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch("/Restaurante_Sonia_Burger/Restaurante_SB/set_tasa.php", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        const nuevaTasa = document.getElementById("monto_bs").value;
+        tasaBCV = parseFloat(nuevaTasa);
+
+        document.getElementById("tasaMsg").textContent = "Tasa guardada correctamente";
+        document.getElementById("tasaMsg").style.display = "block";
+
+        // Actualizar recuadro central
+        document.getElementById("tasaDolar").textContent = tasaBCV + " Bs";
+
+       setTimeout(() => {
+  var modal = bootstrap.Modal.getInstance(document.getElementById("modalTasa"));
+  modal.hide();
+  document.getElementById("tasaMsg").style.display = "none"; // ocultar mensaje al cerrar
+}, 1000);
+
+      }
+    })
+    .catch(err => console.error("Error en set_tasa:", err));
+  });
+
+  // Botón cambiar tasa
+  document.getElementById("btnCambiarTasa").addEventListener("click", function() {
+    var modal = new bootstrap.Modal(document.getElementById("modalTasa"));
+    modal.show();
+  });
+});
+
+// Función de conversión
+function convertirADolares(precioUSD) {
+  return (precioUSD * tasaBCV).toFixed(2);
+}
+</script>
+
+<script>
+  document.getElementById("btnQuitarTasa").addEventListener("click", function() {
+  fetch("/Restaurante_Sonia_Burger/Restaurante_SB/delete_tasa.php")
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        tasaBCV = 0;
+        document.getElementById("tasaDolar").textContent = "No establecida";
+        var modal = new bootstrap.Modal(document.getElementById("modalTasa"));
+        modal.show();
+      }
+    });
+});
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const usuario = localStorage.getItem("usuarioActivo");
+  const rol = localStorage.getItem("rolActivo");
+
+  if (usuario && rol) {
+    document.getElementById("userName").textContent = usuario;
+    const roleBadge = document.getElementById("roleBadge");
+    roleBadge.textContent = rol.charAt(0).toUpperCase() + rol.slice(1);
+    if (rol === "gerente") {
+      roleBadge.className = "badge bg-warning text-dark me-3";
+    } else if (rol === "cajero") {
+      roleBadge.className = "badge bg-danger me-3";
+    }
+  }
+
+  // Manejo de Cerrar sesión: llamar logout.php por POST, limpiar localStorage y redirigir a index.html
+  const btnLogout = document.getElementById("btnLogout");
+  if (btnLogout) {
+    btnLogout.addEventListener("click", async function(e) {
+      e.preventDefault(); // evitar navegación por defecto si es un <a>
+      try {
+        // Llamada al servidor para destruir sesión y actualizar last_login_at
+        await fetch('/Restaurante_Sonia_Burger/Restaurante_SB/logout.php', {
+          method: 'POST',
+          credentials: 'include'
+        });
+      } catch (err) {
+        // ignorar errores de red; igualmente limpiamos el cliente
+        console.warn('Logout request failed:', err);
+      } finally {
+        // Limpiar estado local y redirigir al index (login)
+        localStorage.removeItem("usuarioActivo");
+        localStorage.removeItem("rolActivo");
+        localStorage.removeItem("usuarioActivoId");
+        window.location.href = "/Restaurante_Sonia_Burger/Restaurante_SB/gerente/index.html";
+      }
+    });
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const usuario = localStorage.getItem("usuarioActivo");
+  const rol = localStorage.getItem("rolActivo");
+
+  if (usuario && rol) {
+    // Mostrar nombre
+    document.getElementById("userName").textContent = usuario;
+
+    // Mostrar rol con badge
+    const roleBadge = document.getElementById("roleBadge");
+    roleBadge.textContent = rol.charAt(0).toUpperCase() + rol.slice(1);
+
+    if (rol === "gerente") {
+      roleBadge.className = "badge bg-warning text-dark me-3";
+    } else if (rol === "cajero") {
+      roleBadge.className = "badge bg-danger me-3";
+    }
+  }
+
+
+});
+</script>
+
+
+
+
+</body>
+</html>

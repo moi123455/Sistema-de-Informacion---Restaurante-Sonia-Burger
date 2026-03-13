@@ -1,0 +1,277 @@
+/* style.css - Base para Panel del Gerente */
+
+/* Reset básico */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header-container {
+    background-color: #161414;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fafafa;
+}
+
+/* Botón logout */
+#btnLogout {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Recuadro central de tasa */
+.card {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#tasaDolar {
+    font-size: 2rem;
+    color: #2563eb;
+    margin: 10px 0;
+}
+
+/* Botón cambiar tasa */
+#btnCambiarTasa {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Botones principales */
+.row .btn {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.row .btn:hover {
+    transform: scale(1.05);
+}
+
+/* Colores personalizados */
+.btn-primary {
+    background-color: #2563eb;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+.btn-success {
+    background-color: #2e794d;
+    border: none;
+}
+.btn-success:hover {
+    background-color: #38a169;
+}
+.btn-info {
+    background-color: #0ea5e9;
+    border: none;
+}
+.btn-info:hover {
+    background-color: #0284c7;
+}
+.btn-secondary {
+    background-color: #6b7280;
+    border: none;
+}
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+.btn-warning {
+    background-color: #f59e0b;
+    border: none;
+}
+.btn-warning:hover {
+    background-color: #d97706;
+}
+
+/* Modal */
+.modal-header {
+    background-color: #161414;
+    color: white;
+}
+.modal-title {
+    font-weight: bold;
+}
+.modal-body {
+    padding: 20px;
+}
+.modal-body .btn {
+    min-width: 120px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    #tasaDolar {
+        font-size: 1.5rem;
+    }
+    .row .btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+/* Logo y botón volver */
+.cajero-logo {
+  height:104px;
+  width:auto;
+  border-radius:198px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border: 0.1px solid rgba(255,255,255,0.03);
+}
+
+/* Imagen de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+}
+
+/* Capa semitransparente para atenuar la foto */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.container, .navbar, .card, header, main {
+  position: relative;
+  z-index: 1;
+}
+/* Tasa del día: fondo blanco tenue, título y valor en azul, valor sobre botones */
+.tasa-card {
+background-position: center center;
+background-size: cover;
+   background-image: url('tasa.jpg');
+  color: #0b1220 !important;
+  border: 10px solid rgba(2,6,23,0.06) !important;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.06) !important;
+  border-radius: 120px;
+  padding: 18px;
+}
+
+/* Estructura vertical: título, valor, botones */
+.tasa-card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Título: azul vivo para destacar */
+.tasa-card .card-title {
+  color: #b8af30 !important;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Valor de la tasa: azul, grande y siempre encima de los botones */
+.tasa-card #tasaDolar {
+  color: #d6d43c !important; /* azul */
+  font-size: 2.1rem;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.274);
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  z-index: 2;
+  margin-bottom: 6px;
+}
+
+/* Botones: siempre debajo del valor y con buen contraste */
+.tasa-card .btn {
+  color: #0b1220 !important;
+  font-weight: 700;
+}
+
+/* Estado cuando no hay tasa: texto tenue */
+.tasa-card.no-tasa .card-title { color: #374151 !important; }
+.tasa-card.no-tasa #tasaDolar {
+  color: #6b7280 !important;
+  background: transparent;
+  font-weight: 700;
+}
+
+/* Foco accesible */
+.tasa-card:focus-within, .tasa-card:focus {
+  outline: 3px solid rgba(11,95,255,0.10);
+  outline-offset: 4px;
+}
+
+/* Ajustes responsivos: mantener jerarquía visual en pantallas pequeñas */
+@media (max-width: 576px) {
+  .tasa-card #tasaDolar { font-size: 1.6rem; }
+  .tasa-card .card-body { gap: 8px; padding: 12px; }
+}
+/* Botones del panel del gerente: colores específicos por sección */
+#btnUsuarios {
+  background-color: #f59e0b !important; /* amarillo */
+  color: #0b1220 !important;            /* texto oscuro para contraste */
+  border: none !important;
+}
+#btnUsuarios:hover { background-color: #d97706 !important; filter: none; }
+
+/* Gestión del Menú: azul */
+#btnMenu {
+  background-color: #2563eb !important; /* azul vivo */
+  color: #ffffff !important;
+  border: none !important;
+}
+#btnMenu:hover { background-color: #1d4ed8 !important; }
+
+/* Gestión del inventario: rojo suave (no muy intenso) */
+#btnInventario {
+  background-color: #af1304 !important; /* rojo cálido, menos intenso */
+  color: #ffffff !important;
+  border: none !important;
+}
+#btnInventario:hover { background-color: #970d03 !important; }
+
+/* Gestión de Reportes: verde */
+#btnReportes {
+  background-color: #16a34a !important; /* verde */
+  color: #ffffff !important;
+  border: none !important;
+}
+#btnReportes:hover { background-color: #15803d !important; }
+
+/* Pequeños ajustes comunes para consistencia */
+#btnUsuarios, #btnMenu, #btnInventario, #btnReportes {
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06) !important;
+  transition: transform .12s ease, background-color .12s ease, box-shadow .12s ease;
+}
+#btnUsuarios:active, #btnMenu:active, #btnInventario:active, #btnReportes:active {
+  transform: translateY(1px);
+}
+#btnUsuarios:focus, #btnMenu:focus, #btnInventario:focus, #btnReportes:focus {
+  outline: 3px solid rgba(11,95,255,0.12);
+  outline-offset: 3px;
+}

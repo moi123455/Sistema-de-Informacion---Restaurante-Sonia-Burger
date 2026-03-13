@@ -1,0 +1,564 @@
+/* ===============================
+   style.css - Layout 2xN en escalera (staircase)
+   - Dos secciones por fila (2 columnas)
+   - Filas centradas y simétricas
+   - Filas pares desplazadas verticalmente para efecto "escalera"
+   - Tarjetas altas y uniformes
+   =============================== */
+
+/* Variables globales */
+:root{
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --muted: #6c757d;
+  --accent: #28a745;
+  --danger: #dc3545;
+  --primary: #007bff;
+  --shadow: rgba(0,0,0,0.12);
+  --radius: 12px;
+
+  /* Layout */
+  --contenedor-max-width: 1200px;
+  --categoria-max-width: 560px;
+  --gutter-horizontal: 3rem;   /* espacio horizontal entre columnas */
+  --gutter-vertical: 2.5rem;   /* espacio vertical entre filas */
+  --stair-offset: 36px;        /* desplazamiento vertical para efecto escalera */
+
+  /* Tarjetas */
+  --card-min-height: 420px;
+  --card-img-height: 220px;
+}
+/* Encabezado */
+h2 {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; padding: 0; }
+body {
+  background-color: var(--bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Encabezados y registro */
+.page-header { display:flex; flex-direction:column; align-items:center; gap:.5rem; margin:1.5rem 0; }
+.register-area { display:flex; flex-direction:column; align-items:center; gap:.5rem; margin-bottom:1.25rem; }
+
+/* Contenedor principal: limitar ancho y centrar todo */
+#contenedorPlatos {
+  width: 100%;
+  max-width: var(--contenedor-max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* -------------------------
+   FILA de categorías (2 columnas)
+   - Cada fila contiene hasta 2 columnas.
+   - Usamos space-between para que las columnas ocupen visualmente
+     la mitad izquierda y derecha de la fila.
+   ------------------------- */
+.categoria-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gutter-horizontal);
+  align-items: flex-start;
+  margin-bottom: var(--gutter-vertical);
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform .18s ease;
+}
+
+/* Efecto escalera: desplazar filas pares hacia abajo */
+.categoria-row:nth-child(even) {
+  transform: translateY(var(--stair-offset));
+}
+
+/* -------------------------
+   COLUMNA que contiene una sección
+   ------------------------- */
+.categoria-col {
+  flex: 0 1 48%;
+  display: flex;
+  justify-content: center; /* centra la sección dentro de la mitad */
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+}
+
+/* Si la fila tiene una sola columna, centrarla */
+.categoria-row .categoria-col:only-child { margin: 0 auto; }
+
+/* -------------------------
+   SECCIÓN de categoría (título encima + grid vertical)
+   ------------------------- */
+.categoria-section {
+  width: 100%;
+  max-width: var(--categoria-max-width);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+/* Título encima, centrado */
+.categoria-titulo {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  padding: 8px 0;
+}
+
+/* Grid vertical de tarjetas dentro de la sección */
+.categoria-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* -------------------------
+   TARJETA (uniforme, más alta)
+   ------------------------- */
+.producto-card, .card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 28px var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: var(--card-min-height);
+  border: 0;
+}
+
+/* Hover */
+.producto-card:hover, .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.18);
+}
+
+/* Imagen con mayor altura y cover */
+.producto-img, .card-img-top {
+  width: 100%;
+  height: var(--card-img-height);
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(90deg,#e9ecef,#f8f9fa);
+}
+
+/* Cuerpo de la tarjeta: ocupa el espacio restante y empuja botones al fondo */
+.card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+}
+.card-body .mt-auto { margin-top: auto; }
+
+/* Tipografía y textos */
+.card-title { font-size: 1.08rem; font-weight: 700; margin: 0; color: #212529; }
+.card-text { font-size: .98rem; color: var(--muted); margin: 0; }
+.card-body p { margin: .25rem 0; font-size: .95rem; }
+.card-body strong { font-weight: 700; color: #212529; }
+
+/* Precio no establecido */
+.text-danger { color: var(--danger) !important; font-weight: 700; }
+
+/* Botones dentro de la tarjeta */
+.card-body .d-flex { margin-top: .5rem; }
+.card-body .btn { font-size: .9rem; padding: .45rem .7rem; }
+
+/* Estado badges */
+.estado-badge { display:inline-block; padding:.25rem .5rem; border-radius:.375rem; font-size:.8rem; font-weight:700; color:#fff; }
+.estado-activo { background: var(--accent); }
+.estado-enproceso { background: #ffc107; color: #212529; }
+.estado-nodisponible { background: #6c757d; }
+
+/* Modales e inputs (mantener estilo) */
+.modal-content { border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
+.modal-header { background: #343a40; color: #fff; border-bottom: none; }
+.form-control, .form-select { border-radius: 6px; border: 1px solid #ced4da; }
+.form-control:focus, .form-select:focus { border-color: var(--primary); box-shadow: 0 0 6px rgba(0,123,255,0.18); }
+
+/* Placeholder para imágenes rotas */
+.producto-img[onerror] { background: #e9ecef; }
+
+/* -------------------------
+   Responsivo: en pantallas pequeñas apilar columnas
+   ------------------------- */
+@media (max-width: 991px) {
+  .categoria-row {
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    transform: none !important; /* quitar desplazamiento escalera en móvil */
+  }
+  .categoria-col { flex: 1 1 100%; padding: 0; }
+  :root { --card-min-height: 360px; --card-img-height: 160px; }
+}
+
+/* Ajustes finos para pantallas muy grandes */
+@media (min-width: 1400px) {
+  #contenedorPlatos { max-width: 1400px; }
+  :root { --gutter-horizontal: 4rem; }
+}
+
+/* Utilidades */
+.text-muted { color: var(--muted); }
+.small { font-size: .85rem; }
+
+/* ===== Compact layout overrides for manager menu ===== */
+
+/* Tweak root variables for more compact cards */
+:root{
+  --gutter-horizontal: 2rem;   /* menos espacio horizontal */
+  --gutter-vertical: 1.25rem;  /* menos espacio vertical */
+  --stair-offset: 18px;        /* desplazamiento escalera reducido */
+  --card-min-height: 300px;    /* tarjetas más compactas */
+  --card-img-height: 120px;    /* imagen más pequeña */
+  --categoria-max-width: 520px;
+  --shadow: rgba(0,0,0,0.06);
+}
+
+/* Reduce overall card weight and make hover subtler */
+.producto-card, .card {
+  min-height: var(--card-min-height);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* Hover menos agresivo */
+.producto-card:hover, .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
+
+/* Imagen más pequeña y centrada, cover */
+.producto-img, .card-img-top {
+  height: var(--card-img-height);
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(90deg,#e9ecef,#f8f9fa);
+}
+
+/* Card body más compacto */
+.card-body {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 auto;
+}
+.card-body .mt-auto { margin-top: auto; }
+
+/* Tipografías y tamaños reducidos para compactar */
+.card-title { font-size: 1rem; font-weight: 700; margin: 0; }
+.card-text { font-size: .88rem; color: var(--muted); margin: 0; line-height: 1.15; }
+.card-body p { margin: .2rem 0; font-size: .88rem; }
+
+/* Botones más pequeños y alineados a la derecha */
+.card-body .d-flex { margin-top: .4rem; justify-content: flex-end; }
+.card-body .btn { font-size: .82rem; padding: .35rem .6rem; }
+
+/* Ajuste del grid interno: más tarjetas por fila si hay espacio */
+.categoria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: .6rem;
+}
+
+/* Columnas del layout principal: reducir padding para aprovechar espacio */
+.categoria-col { padding: 0 .4rem; }
+
+/* Escalera menos pronunciada y sin transform en móvil */
+.categoria-row:nth-child(even) { transform: translateY(var(--stair-offset)); }
+@media (max-width: 991px) {
+  .categoria-row { flex-direction: column; gap: 1rem; transform: none !important; }
+  :root { --card-min-height: 260px; --card-img-height: 110px; }
+}
+
+/* Ajustes finos: descripción truncada con altura consistente */
+.producto-card .card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Estado badges más discretos */
+.estado-badge { font-size: .75rem; padding: .2rem .45rem; border-radius: .35rem; }
+
+/* Opcional: si quieres aún más compactas, descomenta y ajusta */
+/*
+:root { --card-min-height: 260px; --card-img-height: 100px; --gutter-horizontal: 1.5rem; }
+.producto-card .card-text { -webkit-line-clamp: 2; }
+*/
+
+
+/* Fin del archivo */
+/* Logo y botón volver */
+.cajero-logo {
+  height:104px;
+  width:auto;
+  border-radius:198px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border: 0.1px solid rgba(255,255,255,0.03);
+}
+
+/* Imagen de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+}
+
+/* Capa semitransparente para atenuar la foto */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.container, .navbar, .card, header, main {
+  position: relative;
+  z-index: 1;
+}
+/* ===== Reparación visual específica para la página de menú ===== */
+
+/* 1) Asegurar pseudo-fondos detrás y no capturando eventos */
+body::before, body::after { pointer-events: none; z-index: -1 !important; }
+
+/* 2) Variables locales para la zona del menú (si usas variables) */
+#contenedorPlatos {
+  --card-bg-menu: rgba(12,12,12,0.72);   /* fondo oscuro para tarjetas */
+  --card-text-menu: #ffffff;             /* texto en tarjetas */
+  --input-bg-menu: rgba(255,255,255,0.03);
+  --input-border-menu: rgba(255,255,255,0.06);
+}
+
+/* 3) Tarjetas dentro del contenedor del menú: fondo oscuro + texto blanco */
+#contenedorPlatos .card,
+#contenedorPlatos .producto-card,
+#contenedorPlatos .card.producto-card {
+  background: var(--card-bg-menu) !important;
+  color: var(--card-text-menu) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.6) !important;
+}
+
+/* Forzar títulos y textos dentro de las tarjetas a blanco */
+#contenedorPlatos .card .card-title,
+#contenedorPlatos .card .card-text,
+#contenedorPlatos .producto-card .card-title,
+#contenedorPlatos .producto-card .card-text,
+.categoria-titulo {
+  color: var(--card-text-menu) !important;
+}
+
+/* 4) Inputs / selects dentro de la UI del menú: fondo oscuro y texto blanco */
+#contenedorPlatos .form-control,
+#contenedorPlatos .form-select,
+.register-area .form-control,
+.register-area .form-select,
+.page-header .form-select {
+  background: var(--input-bg-menu) !important;
+  color: var(--card-text-menu) !important;
+  border: 1px solid var(--input-border-menu) !important;
+}
+#contenedorPlatos .form-control::placeholder,
+#contenedorPlatos .form-select option,
+.register-area .form-control::placeholder {
+  color: rgba(255,255,255,0.65) !important;
+  opacity: 1 !important;
+}
+
+/* 5) Badges / estados: si tienen fondo claro, usar texto oscuro; si fondo oscuro, texto claro */
+#contenedorPlatos .estado-badge { color: #111 !important; }
+#contenedorPlatos .estado-activo { background: var(--accent, #28a745) !important; color: #111 !important; }
+
+/* 6) EXCEPCIÓN: mantener modales exactamente como estaban (texto oscuro, inputs visibles) */
+.modal, .modal * , .modal .modal-content {
+  color: #111111 !important;            /* texto oscuro dentro del modal */
+}
+.modal .form-control, .modal .form-select {
+  background: #ffffff !important;       /* inputs del modal con fondo claro */
+  color: #111111 !important;            /* texto oscuro en inputs del modal */
+  border: 1px solid #ced4da !important; /* borde clásico bootstrap */
+}
+.modal .form-control::placeholder,
+.modal input::placeholder,
+.modal textarea::placeholder {
+  color: #6b6b6b !important;
+  opacity: 1 !important;
+}
+
+/* 7) Asegurar jerarquía z-index del modal (Bootstrap usa 1050/1060) */
+.modal-backdrop { z-index: 1050 !important; background-color: rgba(0,0,0,0.55) !important; }
+.modal { z-index: 1060 !important; }
+
+/* 8) Si alguna tarjeta sigue con fondo blanco por variable global, forzar variable local */
+#contenedorPlatos { --card-bg: var(--card-bg-menu) !important; }
+
+/* 9) Pequeño ajuste para que botones dentro de tarjetas sean legibles */
+#contenedorPlatos .card .btn { color: #111 !important; }
+
+/* Fin del parche visual */
+/* ===== Mostrar Menú del día y categorías en blanco con recuadros visibles ===== */
+
+/* Scope general: solo afecta la zona del menú */
+#contenedorPlatos,
+#contenedorPlatos * {
+  color: #ffffff !important;
+}
+
+/* Encabezado del área (filtro + botones) */
+.page-header,
+.register-area {
+  color: #ffffff !important;
+}
+
+/* Estilo del select filtro para que se vea sobre fondo oscuro */
+#filtroHorario,
+.page-header .form-select {
+  background: rgba(255,255,255,0.04) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  box-shadow: none !important;
+}
+
+/* Filas y columnas: recuadro oscuro para cada sección de categoría */
+.categoria-row {
+  gap: 2rem;
+}
+.categoria-col {
+  padding: 0.5rem;
+}
+
+/* Sección de categoría: recuadro con fondo semitransparente y borde */
+.categoria-section {
+  background: rgba(12,12,12,0.72) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+}
+
+/* Título de categoría: blanco y destacado */
+.categoria-titulo {
+  color: #ffffff !important;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+/* Tarjetas dentro de la categoría: fondo oscuro y texto blanco */
+.categoria-grid .card,
+#contenedorPlatos .producto-card {
+  background: rgba(18,18,18,0.85) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+}
+
+/* Títulos y textos de las tarjetas */
+.categoria-grid .card .card-title,
+.categoria-grid .card .card-text,
+.producto-card .card-title,
+.producto-card .card-text {
+  color: #ffffff !important;
+}
+
+/* Asegurar que botones dentro de tarjetas sean legibles */
+#contenedorPlatos .card .btn {
+  color: #111 !important;
+}
+
+/* Inputs y placeholders dentro del área del menú */
+#contenedorPlatos input,
+#contenedorPlatos textarea,
+#contenedorPlatos select,
+#contenedorPlatos .form-control,
+#contenedorPlatos .form-select {
+  background: rgba(255,255,255,0.03) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+}
+#contenedorPlatos .form-control::placeholder,
+#contenedorPlatos .form-select option {
+  color: rgba(255,255,255,0.65) !important;
+  opacity: 1 !important;
+}
+
+/* EXCEPCIÓN: preservar modales con texto oscuro y inputs claros */
+.modal, .modal * , .modal .modal-content {
+  color: #111111 !important;
+}
+.modal .form-control, .modal .form-select {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #ced4da !important;
+}
+
+/* Asegurar pseudo-fondos no capturen clicks */
+body::before, body::after { pointer-events: none; z-index: -1 !important; }
+/* ===== Fix: opciones de <select> legibles en la UI del menú ===== */
+
+/* 1) Estilo general del select en la zona del menú */
+#contenedorPlatos .form-select,
+.register-area .form-select,
+.page-header .form-select {
+  background: rgba(255,255,255,0.03) !important;
+  color: #ffffff !important;            /* texto del select cuando está cerrado */
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* 2) Forzar que las opciones se muestren con fondo oscuro y texto blanco */
+#contenedorPlatos .form-select option,
+.register-area .form-select option,
+.page-header .form-select option {
+  background: rgba(18,18,18,0.95) !important;
+  color: #ffffff !important;
+}
+
+/* 3) EXCEPCIÓN: selects dentro de modales deben seguir con fondo claro y texto oscuro */
+.modal .form-select,
+.modal .form-control {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #ced4da !important;
+}
+.modal .form-select option,
+.modal .form-control option {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* 4) Si usas select con icono, mantener contraste en el caret */
+#contenedorPlatos .form-select::-ms-expand { display: none; }
+#contenedorPlatos .form-select { background-image: linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.18) 50%), linear-gradient(135deg, rgba(255,255,255,0.18) 50%, transparent 50%); background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px); background-size: 6px 6px, 6px 6px; background-repeat: no-repeat; }
+
+/* 5) Placeholder/option disabled legible */
+#contenedorPlatos .form-select option[disabled] { color: rgba(255,255,255,0.55) !important; }

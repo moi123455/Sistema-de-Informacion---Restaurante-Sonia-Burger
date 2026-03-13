@@ -1,0 +1,419 @@
+/* ===============================
+   style.css - Gestión de Inventario
+   =============================== */
+
+/* Fondo general */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Encabezado */
+h2 {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de insumos */
+#contenedorInsumos {
+  display: flex;
+  flex-direction: column; /* ahora se organizan por secciones de fecha */
+  gap: 30px;
+}
+
+/* Sección por fecha */
+.fecha-section h4 {
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 15px;
+}
+
+.fecha-section p.fw-bold {
+  font-size: 1rem;
+  color: #343a40;
+  margin-top: 10px;
+}
+
+/* Tarjetas de insumos */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Imagen del insumo */
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Texto dentro de la tarjeta */
+.card-body {
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+/* Botones dentro de la tarjeta */
+.card-body .btn {
+  margin-right: 5px;
+}
+
+/* Botones principales */
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Modales */
+.modal-content {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  background-color: #343a40;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+/* Inputs */
+.form-control, .form-select {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0,123,255,0.25);
+}
+
+/* Botón cerrar modal */
+.btn-close {
+  filter: invert(1);
+}
+
+/* Vista previa dinámica */
+#previewInsumo {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+/* Centrar y espaciar botón de cierre de gastos */
+.cierre-gastos-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.25rem 0;        /* espacio entre header y el botón */
+  padding: 0 1rem;
+}
+
+.btn-cierre {
+  min-width: 220px;
+  padding: .55rem 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.btn-cierre:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
+
+/* Ajuste responsive: reducir ancho en móviles */
+@media (max-width: 576px) {
+  .btn-cierre { min-width: 160px; padding: .45rem .8rem; font-size: .95rem; }
+  .cierre-gastos-wrapper { margin: .9rem 0; }
+}
+/* Logo y botón volver */
+.cajero-logo {
+  height:104px;
+  width:auto;
+  border-radius:198px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border: 0.1px solid rgba(255,255,255,0.03);
+}
+
+/* Imagen de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+}
+
+/* Capa semitransparente para atenuar la foto */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.container, .navbar, .card, header, main {
+  position: relative;
+  z-index: 1;
+}
+/* ===== Inventario: UI en blanco + recuadros oscuros (modales intactos) ===== */
+:root{
+  --inv-card-bg: rgba(12,12,12,0.78);
+  --inv-text: #ffffff;
+  --inv-muted: rgba(255,255,255,0.65);
+  --inv-input-bg: rgba(255,255,255,0.03);
+  --inv-input-border: rgba(255,255,255,0.06);
+}
+
+/* Pseudo-fondos detrás y no capturando eventos */
+body::before, body::after { pointer-events: none; z-index: -1 !important; }
+
+/* Scope: aplicar color blanco solo a la UI de inventario y header relacionado */
+header, .header-container, .cierre-gastos-wrapper,
+#contenedorInsumos, #contenedorInsumos * {
+  color: var(--inv-text) !important;
+}
+
+/* Secciones por fecha: recuadro oscuro y borde sutil */
+#contenedorInsumos > .fecha-section,
+#contenedorInsumos .fecha-section,
+#contenedorInsumos .seccion-wrapper {
+  background: var(--inv-card-bg) !important;
+  color: var(--inv-text) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Tarjetas de insumo: fondo oscuro y texto blanco */
+#contenedorInsumos .card,
+#contenedorInsumos .insumo-card,
+#contenedorInsumos .producto-card {
+  background: rgba(18,18,18,0.88) !important;
+  color: var(--inv-text) !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6) !important;
+}
+
+/* Títulos y textos dentro de tarjetas */
+#contenedorInsumos .card .card-title,
+#contenedorInsumos .card .card-text,
+#contenedorInsumos .card p,
+#contenedorInsumos h2, #contenedorInsumos h3 {
+  color: var(--inv-text) !important;
+}
+
+/* Vista previa dinámica: mantener su estilo informativo pero legible */
+#previewInsumo {
+  color: #0c5460 !important;
+  background-color: #d1ecf1 !important;
+  border: 1px solid #bee5eb !important;
+}
+
+/* Inputs / selects / placeholders dentro del área de inventario */
+#contenedorInsumos input,
+#contenedorInsumos textarea,
+#contenedorInsumos select,
+#contenedorInsumos .form-control,
+#contenedorInsumos .form-select,
+.cierre-gastos-wrapper .btn-cierre {
+  background: var(--inv-input-bg) !important;
+  color: var(--inv-text) !important;
+  border: 1px solid var(--inv-input-border) !important;
+}
+#contenedorInsumos .form-control::placeholder,
+#contenedorInsumos .form-select option {
+  color: var(--inv-muted) !important;
+  opacity: 1 !important;
+}
+
+/* Forzar opciones de select oscuras donde el navegador lo permita */
+#contenedorInsumos .form-select option {
+  background: rgba(18,18,18,0.95) !important;
+  color: var(--inv-text) !important;
+}
+
+/* Botones dentro de tarjetas: texto oscuro para contraste sobre botones claros */
+#contenedorInsumos .card .btn,
+#contenedorInsumos .btn {
+  color: #111 !important;
+}
+
+/* EXCEPCIÓN: mantener modales exactamente como estaban (texto oscuro, inputs claros) */
+.modal, .modal * , .modal .modal-content {
+  color: #111111 !important;
+}
+.modal .form-control, .modal .form-select {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #ced4da !important;
+}
+.modal .form-control::placeholder,
+.modal input::placeholder,
+.modal textarea::placeholder {
+  color: #6b6b6b !important;
+  opacity: 1 !important;
+}
+
+/* Jerarquía z-index del modal (Bootstrap) */
+.modal-backdrop { z-index: 1050 !important; background-color: rgba(0,0,0,0.55) !important; }
+.modal { z-index: 1060 !important; }
+
+/* Responsivo */
+@media (max-width: 991px) {
+  #contenedorInsumos .card { padding: 10px; width: 100% !important; }
+  #contenedorInsumos .fecha-section { padding: 10px; }
+}
+/* 1) Texto oscuro dentro del cuerpo de las tarjetas (no afecta modales) */
+#contenedorInsumos .card .card-body,
+#contenedorInsumos .card .card-body p,
+#contenedorInsumos .card .card-body strong,
+#contenedorInsumos .card .card-title {
+  color: #212529 !important;        /* color oscuro legible sobre fondo claro del card-body */
+}
+
+/* Si usas .fecha-section con fondo claro, forzar texto oscuro allí también */
+#contenedorInsumos .fecha-section,
+#contenedorInsumos .fecha-section * {
+  color: #212529 !important;
+}
+
+/* Mantener la excepción: modales siguen con texto oscuro y inputs claros */
+.modal, .modal * , .modal .modal-content { color: #111111 !important; }
+/* ===== Forzar blanco en textos que quedaron grises (Inventario) ===== */
+#contenedorInsumos,
+#contenedorInsumos * {
+  color: inherit;
+}
+
+/* Elementos concretos que suelen aparecer en gris */
+#contenedorInsumos .card-body,
+#contenedorInsumos .card-body p,
+#contenedorInsumos .card-body strong,
+#contenedorInsumos .card-body .small,
+#contenedorInsumos .card .card-title,
+#contenedorInsumos .fecha-section,
+#contenedorInsumos .fecha-section p,
+#contenedorInsumos .fecha-section .fw-bold,
+#contenedorInsumos p.fw-bold,
+#contenedorInsumos .text-muted,
+#contenedorInsumos .small,
+#contenedorInsumos .form-text,
+#contenedorInsumos .badge,
+#contenedorInsumos .card .card-text {
+  color: #ffffff !important;
+}
+
+/* Si hay spans o labels sueltos dentro de las tarjetas */
+#contenedorInsumos .card span,
+#contenedorInsumos .card label {
+  color: #ffffff !important;
+}
+
+/* Mantener la excepción: modales y sus inputs no se tocan */
+.modal, .modal * , .modal .modal-content {
+  color: #111111 !important;
+}
+/* ===== Correcciones puntuales: fecha blanca y nombre legible ===== */
+
+/* 1) Forzar fecha de sección a blanco (visible sobre fondo oscuro) */
+#contenedorInsumos .fecha-section h4,
+#contenedorInsumos .fecha-section h4 * {
+  color: #ffffff !important;
+}
+
+/* 2) Si la sección muestra la fecha en un <p> o .fw-bold, también forzarlo */
+#contenedorInsumos .fecha-section p,
+#contenedorInsumos .fecha-section .fw-bold {
+  color: #ffffff !important;
+}
+
+/* 3) Nombre del insumo (card-title): si la tarjeta tiene card-body con fondo claro, usar texto oscuro */
+#contenedorInsumos .card .card-body {
+  /* detectamos el fondo claro por la regla existente; forzamos color oscuro dentro */
+  color: #212529 !important;
+}
+#contenedorInsumos .card .card-body .card-title,
+#contenedorInsumos .card .card-body h5.card-title {
+  color: #212529 !important;
+}
+
+/* 4) Pero si la tarjeta tiene fondo oscuro (clase insumo-card o producto-card), forzar título blanco */
+#contenedorInsumos .insumo-card,
+#contenedorInsumos .producto-card,
+#contenedorInsumos .card.dark-bg {
+  color: #ffffff !important;
+}
+#contenedorInsumos .insumo-card .card-title,
+#contenedorInsumos .producto-card .card-title,
+#contenedorInsumos .card.dark-bg .card-title {
+  color: #ffffff !important;
+}
+
+/* 5) Asegurar que otros textos dentro de card-body sean legibles (parrafos, strong) */
+#contenedorInsumos .card .card-body p,
+#contenedorInsumos .card .card-body strong,
+#contenedorInsumos .card .card-body span,
+#contenedorInsumos .card .card-body label {
+  color: inherit !important; /* hereda la regla aplicada arriba (oscuro o blanco según el caso) */
+}
+
+/* 6) Mantener modales intactos */
+.modal, .modal * , .modal .modal-content { color: #111111 !important; }
