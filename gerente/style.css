@@ -1,0 +1,148 @@
+/* style.css - Base inicial para Sistema Restaurante */
+
+/* Reset básico */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header-container {
+    background-color: #302c2c;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fafafa;
+}
+
+/* Botón de login */
+.login-btn {
+    background-color: #667eea;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.login-btn:hover {
+    background-color: #556cd6;
+}
+
+/* Badge de rol */
+#roleBadge {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* Main */
+main {
+    margin-top: 50px;
+    text-align: center;
+}
+main h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+main p {
+    color: #4b5563;
+    margin-top: 1rem;
+}
+
+/* Modales */
+.modal-header {
+    background-color: #161414;
+    color: white;
+}
+.modal-title {
+    font-weight: bold;
+}
+.modal-body {
+    padding: 20px;
+}
+.modal-body .btn {
+    min-width: 120px;
+}
+
+/* Botones generales */
+.btn-primary {
+    background-color: #cf1717;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #961414;
+}
+.btn-success {
+    background-color: #2e794d;
+    border: none;
+}
+.btn-success:hover {
+    background-color: #38a169;
+}
+.btn-danger {
+    background-color: #dc2626;
+    border: none;
+}
+.btn-danger:hover {
+    background-color: #b91c1c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    main h2 {
+        font-size: 1.5rem;
+    }
+}
+/* Logo y botón volver */
+.cajero-logo {
+  height:104px;
+  width:auto;
+  border-radius:198px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border: 0.1px solid rgba(255,255,255,0.03);
+}
+
+/* Imagen de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo2.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+}
+
+/* Capa semitransparente para atenuar la foto */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.container, .navbar, .card, header, main {
+  position: relative;
+  z-index: 1;
+}

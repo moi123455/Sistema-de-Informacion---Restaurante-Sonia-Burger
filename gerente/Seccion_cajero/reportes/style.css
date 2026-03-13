@@ -1,0 +1,365 @@
+/* ===============================
+   style.css - Reportes Cajero
+   =============================== */
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pedido-cancelado {
+  border-left: 6px solid #dc3545;
+  background-color: #fff5f5;
+}
+
+h2, h4 {
+  color: #fbfdff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Navbar superior */
+.navbar {
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.navbar-text {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.navbar .btn {
+  font-weight: 500;
+}
+
+/* Botón de cierre de sesión */
+#btnCerrarSesion {
+  background-color: #dc3545;
+  border: none;
+}
+
+#btnCerrarSesion:hover {
+  background-color: #c82333;
+}
+
+/* Botón de regresar al menú */
+.navbar .btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+.navbar .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Contenedor de pedidos */
+#contenedorReportesCajero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+/* Tarjetas de pedidos */
+#contenedorReportesCajero .card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contenedorReportesCajero .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+#contenedorReportesCajero .card-body {
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+#contenedorReportesCajero .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+#contenedorReportesCajero p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Estados de pedidos */
+.pedido-pendiente {
+  border-left: 5px solid #ffc107;
+}
+
+.pedido-entregado {
+  border-left: 5px solid #28a745;
+}
+
+.pedido-cancelado {
+  border-left: 5px solid #dc3545;
+}
+
+/* Botón de cierre de caja */
+#btnCierreCaja {
+  background-color: #343a40;
+  color: #ffffff;
+  border: none;
+}
+
+#btnCierreCaja:hover {
+  background-color: #23272b;
+}
+
+/* Mensaje de cierre */
+#mensajeCierre {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #28a745;
+}
+
+/* Modal de edición */
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #343a40;
+  color: #ffffff;
+}
+/* Fondo con imagen desenfocada (usa fondo.jpg en la misma carpeta) */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text);
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Imagen de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+}
+
+/* Capa semitransparente para atenuar la foto */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.container, .navbar, .card, header, main {
+  position: relative;
+  z-index: 1;
+}
+/* Mensaje "No hay pedidos" — tono amarillo suave y texto legible */
+#contenedorReportesCajero > .alert.alert-secondary {
+  background-color: #862626; /* amarillo muy tenue */
+  color: #4b3f00;            /* texto oscuro cálido para buen contraste */
+  border: 1px solid rgba(75,63,0,0.08);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Icono opcional antes del texto (decorativo) */
+#contenedorReportesCajero > .alert.alert-secondary::before {
+  content: "⚠️";
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateY(-1px);
+}
+
+/* Asegurar accesibilidad: foco visible si el mensaje es interactivo */
+#contenedorReportesCajero > .alert.alert-secondary:focus {
+  outline: 3px solid rgba(255,193,7,0.18);
+  outline-offset: 3px;
+}
+/* Asegurar texto legible dentro de las tarjetas de pedidos */
+#contenedorReportesCajero .card,
+#contenedorReportesCajero .card .card-body {
+  color: #000 !important;               /* texto negro legible */
+  background-color: #fff !important;    /* fondo blanco si quieres */
+}
+
+/* Si prefieres mantener fondo oscuro, fuerza contraste del texto */
+#contenedorReportesCajero .card.bg-dark,
+#contenedorReportesCajero .card .card-body.bg-dark {
+  color: #fff !important;
+}
+
+/* Forzar color de títulos y campos clave */
+#contenedorReportesCajero .card .card-title,
+#contenedorReportesCajero .card .card-body p,
+#contenedorReportesCajero .card .card-body strong {
+  color: inherit !important;
+}
+
+/* Si usas clases de estado que aplican fondo oscuro, asegúrate del contraste */
+.pedido-pendiente .card-body,
+.pedido-entregado .card-body,
+.pedido-cancelado .card-body,
+.pedido-archivado .card-body {
+  color: #000 !important;
+}
+/* ===== Legibilidad en tarjetas y modales de reportes ===== */
+
+/* Forzar fondo claro y texto oscuro dentro de las tarjetas de pedidos */
+#contenedorReportesCajero .card,
+#contenedorReportesCajero .card .card-body {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+
+/* Forzar contraste en títulos y párrafos dentro de tarjetas */
+#contenedorReportesCajero .card .card-title,
+#contenedorReportesCajero .card .card-body p,
+#contenedorReportesCajero .card .card-body strong {
+  color: #212529 !important;
+}
+
+/* Modal detalle y modal editar: fondo claro y texto oscuro */
+#detalleModal .modal-content,
+#editarPedidoModal .modal-content,
+#detalleModal .modal-body,
+#editarPedidoModal .modal-body {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+
+/* Asegurar que el header del modal siga blanco sobre fondo oscuro */
+#detalleModal .modal-header,
+#editarPedidoModal .modal-header {
+  color: #fff !important;
+}
+
+/* Forzar inputs y selects dentro de modales a ser legibles */
+#detalleModal .modal-body input,
+#detalleModal .modal-body textarea,
+#detalleModal .modal-body select,
+#editarPedidoModal .modal-body input,
+#editarPedidoModal .modal-body textarea,
+#editarPedidoModal .modal-body select {
+  background-color: #fff !important;
+  color: #212529 !important;
+  border-color: #ced4da !important;
+}
+
+/* Forzar placeholder legible */
+#detalleModal .modal-body ::placeholder,
+#editarPedidoModal .modal-body ::placeholder {
+  color: #6c757d !important;
+}
+
+/* Si hay botones con fondo oscuro dentro del modal, mantener texto legible */
+#detalleModal .modal-body .btn,
+#editarPedidoModal .modal-body .btn {
+  color: inherit !important;
+}
+
+/* Evitar que el overlay oscuro haga ilegible el contenido del modal */
+.modal-backdrop.show { opacity: 0.45 !important; }
+/* Parche de contraste definitivo para reportes y modales */
+body #contenedorReportesCajero .card .card-body *,
+body #contenedorReportesCajero .card .card-body,
+body #contenedorReportesCajero .card .card-body p,
+body #contenedorReportesCajero .card .card-body h5,
+body #contenedorReportesCajero .card .card-body strong {
+  color: #212529 !important;
+  -webkit-text-fill-color: #212529 !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Modal detalle y modal editar: forzar fondo claro y texto oscuro */
+body #detalleModal .modal-content,
+body #detalleModal .modal-body,
+body #editarPedidoModal .modal-content,
+body #editarPedidoModal .modal-body {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  -webkit-text-fill-color: #212529 !important;
+}
+
+/* Forzar inputs, selects y textareas dentro de modales y tarjetas */
+body #detalleModal .modal-body input,
+body #detalleModal .modal-body textarea,
+body #detalleModal .modal-body select,
+body #editarPedidoModal .modal-body input,
+body #editarPedidoModal .modal-body textarea,
+body #editarPedidoModal .modal-body select,
+body #contenedorReportesCajero .card .card-body input,
+body #contenedorReportesCajero .card .card-body select,
+body #contenedorReportesCajero .card .card-body textarea {
+  color: #212529 !important;
+  -webkit-text-fill-color: #212529 !important;
+  background-color: #fff !important;
+  border-color: #ced4da !important;
+}
+
+/* Asegurar que los títulos dentro del modal/tarjeta sean legibles */
+body #detalleModal .modal-body h5,
+body #editarPedidoModal .modal-body h5,
+body #contenedorReportesCajero .card .card-title {
+  color: #212529 !important;
+}
+
+/* Si alguna regla previa aplica text-white a un contenedor, anularla aquí */
+body .text-white #contenedorReportesCajero .card .card-body *,
+body .text-white #detalleModal .modal-body * {
+  color: #212529 !important;
+  -webkit-text-fill-color: #212529 !important;
+}
+/* Forzar visibilidad del título del modal y anular reglas conflictivas */
+#detalleModal .modal-header .modal-title,
+#editarPedidoModal .modal-header .modal-title,
+.modal .modal-header .modal-title {
+  color: #ffffff !important;                 /* título blanco sobre header oscuro */
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  text-shadow: none !important;
+}
+
+/* Si tu header es claro y quieres título oscuro (opcional) */
+/* Descomenta la regla siguiente si el header es claro y el título debe ser oscuro */
+/*
+#detalleModal .modal-header .modal-title,
+#editarPedidoModal .modal-header .modal-title {
+  color: #212529 !important;
+  -webkit-text-fill-color: #212529 !important;
+}
+*/
+
+/* Asegurar que el header mantenga contraste con el body */
+#detalleModal .modal-header,
+#editarPedidoModal .modal-header {
+  background-color: #343a40 !important;     /* oscuro */
+  color: #fff !important;
+}
+
+/* Si alguna regla global aplica text-white a todo el modal, anularla para el título */
+.modal .modal-header .modal-title.text-white,
+.modal .modal-header .modal-title {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+

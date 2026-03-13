@@ -1,0 +1,552 @@
+/* ===============================
+   style.css - Sección Cajero (actualizado)
+   - Tarjetas más compactas y ordenadas
+   - Mantiene la identidad visual original
+   =============================== */
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2,h3, h4 {
+  color: #343a40;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Navbar superior */
+.navbar {
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 110px;
+}
+
+.navbar-text {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.navbar .btn {
+  font-weight: 500;
+}
+
+/* Botón de cierre de sesión */
+#btnCerrarSesion {
+  background-color: #dc3545;
+  border: none;
+}
+
+#btnCerrarSesion:hover {
+  background-color: #c82333;
+}
+
+/* Botón de administración de reportes */
+.navbar .btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.navbar .btn-primary:hover {
+  background-color: #0069d9;
+}
+
+/* Formulario */
+form label {
+  font-weight: 500;
+  color: #343a40;
+}
+
+form .btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+form .btn-success:hover {
+  background-color: #218838;
+}
+
+/* ===============================
+   Contenedor y layout del menú
+   =============================== */
+
+/* Contenedor principal del menú (usa grid para orden) */
+#contenedorMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  align-items: start;
+  justify-items: stretch;
+  padding: 0;
+  margin: 0;
+}
+
+/* Tarjeta base */
+#contenedorMenu .card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px; /* más compacta */
+  background-color: #ffffff;
+  border: 0;
+}
+
+/* Hover sutil */
+#contenedorMenu .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+}
+
+/* Imagen compacta */
+#contenedorMenu .card img,
+#contenedorMenu .card .card-img-top {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(90deg,#e9ecef,#f8f9fa);
+}
+
+/* Cuerpo compacto */
+#contenedorMenu .card-body {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 auto;
+}
+
+#contenedorMenu .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #343a40;
+  margin: 0;
+  line-height: 1.1;
+}
+
+#contenedorMenu .card-text {
+  font-size: .88rem;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Precio y meta info */
+#contenedorMenu .card-body p {
+  margin: .2rem 0;
+  font-size: .88rem;
+}
+
+/* Botones compactos alineados a la derecha */
+#contenedorMenu .card-body .d-flex {
+  margin-top: auto;
+  justify-content: flex-end;
+  gap: .4rem;
+}
+#contenedorMenu .card-body .btn {
+  font-size: .82rem;
+  padding: .35rem .6rem;
+}
+
+/* Selección visual del plato */
+.plato-seleccionado {
+  outline: 3px solid #28a745;
+  outline-offset: -3px;
+}
+
+/* Modal de login */
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #343a40;
+  color: #000000;
+}
+
+/* Placeholder para imágenes rotas */
+#contenedorMenu img[onerror] { background: #e9ecef; }
+
+/* Estado badges discretos */
+.estado-badge { font-size: .75rem; padding: .2rem .45rem; border-radius: .35rem; }
+
+/* Responsive: en pantallas pequeñas apilar en 1 columna */
+@media (max-width: 767px) {
+  #contenedorMenu {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  #contenedorMenu .card { min-height: 220px; }
+  #contenedorMenu .card img { height: 100px; }
+}
+
+/* Ajustes finos para pantallas grandes */
+@media (min-width: 1400px) {
+  #contenedorMenu {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Utilidades */
+.text-muted { color: #ffffff; }
+.small { font-size: .85rem; }
+
+/* ===============================
+   Diseño Cajero — Negro + Amarillo
+   (Pegar al final de style.css)
+   =============================== */
+
+:root{
+  --bg-dark: #0b0b0b;
+  --surface: #121212;
+  --accent: #FFD166;
+  --accent-2: #FFB703;
+  --muted: #BDBDBD;
+  --text: #F5F5F5;
+  --danger: #FF6B6B;
+  --radius: 10px;
+}
+
+/* Fondo con imagen desenfocada (usa fondo.jpg en la misma carpeta) */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text);
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Imagen de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+}
+
+/* Capa semitransparente para atenuar la foto */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.container, .navbar, .card, header, main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Topbar personalizado (mantiene compatibilidad con Bootstrap) */
+.cajero-topbar {
+  background: rgba(0,0,0,0.65) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  padding: 8px 12px;
+  backdrop-filter: blur(4px);
+}
+
+.cajero-topbar-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+
+/* Logo y botón volver */
+.cajero-logo {
+  height:104px;
+  width:auto;
+  border-radius:198px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border: 0.1px solid rgba(255,255,255,0.03);
+}
+
+.btn-back {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight:600;
+}
+
+/* Centro del header (tasa) */
+.top-center .tasa-label { color: var(--muted); font-weight:600; }
+
+/* Usuario y acciones a la derecha */
+.user-block { min-width: 140px; text-align:right; }
+.user-name { font-weight:700; }
+.role-badge { font-weight:600; }
+
+/* Botones principales con acento amarillo */
+.btn-accent, .btn-accent:focus, .btn-accent:active {
+  background: var(--accent);
+  color: #111;
+  border: none;
+  box-shadow: 0 6px 18px rgba(255,209,102,0.08);
+}
+.btn-accent:hover { background: var(--accent-2); color:#111; }
+
+/* Ajustes para botones existentes: armonizar colores */
+.btn-info { background: linear-gradient(180deg, #2b2b2b, #1f1f1f); color:var(--text); border:1px solid rgba(255,255,255,0.04); }
+.btn-success { background: var(--accent); color:#111; border:none; }
+
+/* Tarjetas y formularios: superficies oscuras y bordes suaves */
+.card, .alert, .form-control, .form-select {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--text);
+  border-radius: 10px;
+}
+
+/* Inputs transparentes con borde sutil */
+.form-control, .form-select {
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Carrito y botones grandes */
+#btnConfirmar, .btn-accent.large {
+  width:100%;
+  padding: 12px 14px;
+  font-weight:700;
+  border-radius:10px;
+}
+
+/* Selección de plato: acento amarillo (no cambia la clase) */
+.plato-seleccionado {
+  outline: 2px solid rgba(255,209,102,0.18);
+  box-shadow: 0 10px 30px rgba(255,209,102,0.06);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 900px) {
+  .cajero-logo { height:36px; }
+  .brand-label { display:none; }
+  .user-block { min-width: 100px; text-align:right; }
+}
+
+/* Transiciones suaves */
+.btn, .form-control, .form-select, .card { transition: all .12s ease; }
+
+/* ---------- Logo flotante encima del header ---------- */
+.floating-logo {
+  position: fixed;
+  top: 6px;                 /* ajustar verticalmente */
+  left: 18px;               /* alinear con el borde izquierdo del header */
+  z-index: 1200;            /* por encima del header */
+  pointer-events: none;     /* no interfiere con clicks */
+  transform-origin: left top;
+  --logo-scale: 1.0;        /* cambiar este valor para agrandar/reducir */
+  transform: translateY(0) scale(var(--logo-scale));
+  transition: transform .18s ease;
+}
+.floating-logo-img {
+  display: block;
+  height: 56px;             /* tamaño base; cambiar si quieres */
+  width: auto;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6));
+  border-radius: 8px;
+}
+
+/* Responsive: reducir logo en pantallas pequeñas */
+@media (max-width: 900px) {
+  .floating-logo-img { height: 44px; }
+}
+
+/* ---------- Forzar texto claro en header y badges ---------- */
+/* Asegura que los textos del header sean blancos puros y legibles */
+.cajero-topbar, .navbar, .topbar-center, .topbar-right, .top-left, .top-center, .top-right {
+  color: #ffffff !important;
+}
+.cajero-topbar .tasa-label,
+.cajero-topbar .brand-label,
+.cajero-topbar .user-block,
+.cajero-topbar .user-block * {
+  color: #ffffff !important;
+}
+
+/* Si alguna regla previa oscurece el texto, esta la sobreescribe */
+.navbar-text, .brand-label, #userName, .tasa-label {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* ---------- Select / Método de pago: estilo oscuro y legible ---------- */
+/* Aplica a todos los selects; si prefieres solo al select de pago, usa #metodoPago.form-select-dark */
+.form-select, select {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 238, 0, 0.06) !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 2.5rem; /* espacio para flecha */
+}
+
+/* Placeholder / option legible */
+.form-select option {
+  background: #121212;
+  color: #ffffff;
+}
+
+/* Cuando el select está abierto en algunos navegadores, asegurar contraste */
+.form-select:focus {
+  outline: 2px solid rgba(255,209,102,0.18);
+  box-shadow: 0 6px 18px rgba(255,209,102,0.06);
+  background: rgba(255,255,255,0.035);
+  color: #ffffff;
+}
+
+/* Forzar color del placeholder (cuando el option tiene value="") */
+.form-select option[value=""] { color: #bdbdbd; }
+
+/* Flecha personalizada (si quieres) */
+.form-select {
+  background-image: linear-gradient(45deg, transparent 50%, #fff 50%),
+                    linear-gradient(135deg, #fff 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* ---------- Ajustes finos para contraste en tarjetas y textos ---------- */
+.card .card-title, .card .card-text, h2, h4 {
+  color: #ffffff !important;
+}
+
+/* Si quieres reducir la intensidad del fondo para que el logo destaque más */
+body::after { background: linear-gradient(180deg, rgba(11,11,11,0.55), rgba(11,11,11,0.75)); }
+
+
+
+/* ---------- Forzar texto legible blanco en etiquetas y textos de formulario ---------- */
+label, .form-label, .input-group-text, .form-check-label, .form-control-label,
+.form-control, .form-select {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Placeholder de inputs */
+.form-control::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #dcdcdc !important; /* gris claro legible */
+  opacity: 1 !important;
+}
+
+/* Select cerrado y opciones */
+.form-select {
+  background: rgba(255,255,255,0.03) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* Opciones del select (la mayoría de navegadores respetan esto) */
+.form-select option {
+  background: #121212 !important;
+  color: #ffffff !important;
+}
+
+/* Botones dentro de input-group */
+.input-group .btn, .input-group .btn * {
+  color: #ffffff !important;
+}
+
+/* Badges y alertas */
+.badge, .alert {
+  color: #ffffff !important;
+}
+
+/* Asegurar títulos de secciones y labels en modales */
+.modal .modal-title, .modal .form-label {
+  color: #ffffff !important;
+}
+
+/* Si hay utilidades text-muted que oscurecen demasiado, suavemente sobreescribimos */
+.text-muted { color: #bdbdbd !important; }
+
+/* Mantener transiciones suaves */
+.btn, .form-control, .form-select, .card { transition: all .12s ease; }
+
+
+
+/* ===== Cajero modales: texto oscuro y campos claros (scope: .cajero-modal) ===== */
+.cajero-modal, .cajero-modal * , .cajero-modal .modal-content {
+  color: #111111 !important;
+}
+
+/* Modal content: fondo claro y bordes clásicos para legibilidad */
+.cajero-modal .modal-content {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6 !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+}
+
+/* Encabezado: mantener contraste (texto blanco sobre header oscuro) */
+.cajero-modal .modal-header {
+  background: #343a40 !important;
+  color: #ffffff !important;
+}
+.cajero-modal .modal-header .modal-title { color: #ffffff !important; }
+
+/* Cuerpo y formularios: inputs y selects claros y legibles */
+.cajero-modal .modal-body,
+.cajero-modal .modal-body .form-label,
+.cajero-modal .modal-body .form-text {
+  color: #111111 !important;
+}
+.cajero-modal .form-control,
+.cajero-modal .form-select,
+.cajero-modal input,
+.cajero-modal textarea {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #ced4da !important;
+  box-shadow: none !important;
+}
+.cajero-modal .form-control::placeholder,
+.cajero-modal input::placeholder,
+.cajero-modal textarea::placeholder {
+  color: #6b6b6b !important;
+  opacity: 1 !important;
+}
+
+/* Botones dentro del modal: asegurar contraste */
+.cajero-modal .btn, .cajero-modal .btn * { color: #111 !important; }
+
+/* Forzar opciones de select claras donde el navegador lo permita */
+.cajero-modal .form-select option {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* Evitar que reglas globales (text-white) afecten inputs y labels dentro del modal */
+.cajero-modal .form-label,
+.cajero-modal label,
+.cajero-modal .form-text,
+.cajero-modal .modal-body p,
+.cajero-modal .modal-body span {
+  color: #111111 !important;
+}
+
+/* Asegurar z-index correcto para modal y backdrop */
+.cajero-modal { z-index: 1060 !important; }
+.cajero-modal ~ .modal-backdrop { z-index: 1050 !important; }

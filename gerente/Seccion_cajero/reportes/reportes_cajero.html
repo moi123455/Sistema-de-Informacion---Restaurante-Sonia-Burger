@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<!-- 2. Tus estilos locales (existentes) -->
+<link rel="stylesheet" href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_cajero/style.css">
+  <meta charset="UTF-8">
+  <title>Administración de Reportes - Cajero</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar superior (reemplazar el nav existente) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- Izquierda: texto fijo CAJERO y Volver -->
+    <div class="d-flex align-items-center">
+      <img src="logo.png" alt="Logo" class="cajero-logo" />
+      <span class="navbar-text text-white fw-bold me-3">CAJERO</span>
+    </div>
+
+    <!-- Centro: título -->
+    <div class="mx-auto text-center">
+      <span class="navbar-text text-white h6 mb-0">Administración de Reportes</span>
+    </div>
+
+    <!-- Derecha: usuario, rol, cerrar sesión y regresar al menú -->
+    <div class="d-flex align-items-center">
+      <span id="userName" class="fw-bold text-white me-2">Usuario</span>
+      <span id="roleBadge" class="badge bg-danger text-white me-3">Cajero</span>
+      <a href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_cajero/cajero.html"
+         class="btn btn-primary btn-sm">Regresar al Menú</a>
+    </div>
+    <div class="d-flex align-items-center">
+        <span id="userName" class="fw-bold me-2"></span>
+        <span id="roleBadge" class="badge me-3"></span>
+        <button id="btnLogout" class="btn btn-danger btn-sm">Cerrar sesión</button>
+      </div>
+  </div>
+</nav>
+
+
+
+
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="m-0">Pedidos</h2>
+
+      <div class="d-flex gap-2 align-items-center">
+        <div id="statsResumen" class="me-3 text-end" style="min-width:120px;"></div>
+
+        <div class="input-group">
+          <select id="filtroEstado" class="form-select">
+            <option value="">Todos los estados</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="entregado">Entregado</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor de pedidos -->
+    <section>
+      <div class="d-flex flex-wrap gap-3" id="contenedorReportesCajero">
+        <!-- Pedidos cargados dinámicamente -->
+      </div>
+    </section>
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <div>
+        <button class="btn btn-dark" id="btnCierreCaja">Cerrar Caja</button>
+      </div>
+      <div id="mensajeCierre" class="ms-3"></div>
+    </div>
+  </div>
+
+  <!-- Modal de edición de pedido -->
+  <div class="modal fade" id="editarPedidoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title">Editar Pedido</h5>
+        </div>
+        <div class="modal-body">
+          <form id="formEditarPedido">
+            <input type="hidden" id="editarIdPedido">
+            <div class="mb-3">
+              <label for="editarCliente" class="form-label">Nombre del cliente</label>
+              <input type="text" class="form-control" id="editarCliente" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarTelefono" class="form-label">Teléfono</label>
+              <input type="text" class="form-control" id="editarTelefono" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarMetodoPago" class="form-label">Método de pago</label>
+              <select class="form-select" id="editarMetodoPago" required>
+                <option value="Efectivo">Efectivo</option>
+                <option value="Tarjeta">Tarjeta</option>
+                <option value="Pago Móvil">Pago Móvil</option>
+                <option value="Zelle">Zelle</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="editarPlato" class="form-label">Plato</label>
+              <input type="text" class="form-control" id="editarPlato" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel de reportes archivados (enlace a vista) -->
+  <div class="container mt-4">
+    <hr>
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="m-0">Reportes archivados</h4>
+      <a href="reportes_list.html" class="btn btn-outline-primary">Ver reportes archivados</a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const userEl = document.getElementById("userName");
+  const roleEl = document.getElementById("roleBadge");
+  const btnCerrar = document.getElementById("btnCerrarSesionHeader");
+
+  const usuario = localStorage.getItem("usuarioActivo") || "";
+  const rol = localStorage.getItem("rolActivo") || "cajero";
+
+  if (userEl) userEl.textContent = usuario ? usuario : "Usuario";
+  if (roleEl) {
+    roleEl.textContent = (rol || "CAJERO").toString().toUpperCase();
+    // mantener la clase visual igual que en cajero.html
+    roleEl.className = (rol && rol.toLowerCase() === "cajero") ? "badge bg-danger text-white me-3" : "badge bg-warning text-dark me-3";
+  }
+
+  if (btnCerrar) {
+    btnCerrar.addEventListener("click", () => {
+      localStorage.removeItem("usuarioActivo");
+      localStorage.removeItem("rolActivo");
+      window.location.href = "/Restaurante_Sonia_Burger/Restaurante_SB/gerente/index.html";
+    });
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const usuario = localStorage.getItem("usuarioActivo");
+  const rol = localStorage.getItem("rolActivo");
+
+  if (usuario && rol) {
+    document.getElementById("userName").textContent = usuario;
+    const roleBadge = document.getElementById("roleBadge");
+    roleBadge.textContent = rol.charAt(0).toUpperCase() + rol.slice(1);
+    if (rol === "gerente") {
+      roleBadge.className = "badge bg-warning text-dark me-3";
+    } else if (rol === "cajero") {
+      roleBadge.className = "badge bg-danger me-3";
+    }
+  }
+
+  // Manejo de Cerrar sesión: llamar logout.php por POST, limpiar localStorage y redirigir a index.html
+  const btnLogout = document.getElementById("btnLogout");
+  if (btnLogout) {
+    btnLogout.addEventListener("click", async function(e) {
+      e.preventDefault(); // evitar navegación por defecto si es un <a>
+      try {
+        // Llamada al servidor para destruir sesión y actualizar last_login_at
+        await fetch('/Restaurante_Sonia_Burger/Restaurante_SB/logout.php', {
+          method: 'POST',
+          credentials: 'include'
+        });
+      } catch (err) {
+        // ignorar errores de red; igualmente limpiamos el cliente
+        console.warn('Logout request failed:', err);
+      } finally {
+        // Limpiar estado local y redirigir al index (login)
+        localStorage.removeItem("usuarioActivo");
+        localStorage.removeItem("rolActivo");
+        localStorage.removeItem("usuarioActivoId");
+        window.location.href = "/Restaurante_Sonia_Burger/Restaurante_SB/gerente/index.html";
+      }
+    });
+  }
+});
+</script>
+
+  <script src="app_reportes_cajero.js"></script>
+</body>
+</html>

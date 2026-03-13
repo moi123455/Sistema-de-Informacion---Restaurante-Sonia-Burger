@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+  <!-- FAVICONS: usar logo.png como fuente -->
+<link rel="icon" type="image/png" sizes="32x32" href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_cajero/logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_cajero/logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_cajero/logo.png">
+
+  <meta charset="UTF-8" />
+  <title>Sección Cajero</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVBAR actualizado (pegar en lugar del nav existente) -->
+<nav class="navbar navbar-dark cajero-topbar">
+  <div class="cajero-topbar-inner container-fluid d-flex align-items-center justify-content-between">
+    <!-- izquierda: logo + volver -->
+    <div class="d-flex align-items-center gap-2 top-left">
+      <img src="logo.png" alt="Logo" class="cajero-logo" />
+      <a href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_gerencia/gerente.html"
+         class="btn btn-back btn-sm">Volver</a>
+      <span class="brand-label ms-2 text-white fw-bold d-none d-md-inline">CAJERO</span>
+    </div>
+
+    <!-- centro: tasa -->
+    <div class="top-center text-center">
+      <div class="tasa-label text-white small">Tasa BCV: $1 = Bs. <span id="tasaBCV">0.00</span></div>
+    </div>
+
+    <!-- derecha: usuario y acciones (mismos IDs para compatibilidad) -->
+    <div class="d-flex align-items-center gap-2 top-right">
+      <div class="user-block text-end me-2">
+        <span id="userName" class="fw-bold text-white me-2">Usuario</span>
+        <span id="roleBadge" class="badge bg-danger text-white me-3">Cajero</span>
+      </div>
+
+      <button class="btn btn-outline-light btn-sm" id="btnReportes"
+              onclick="window.location.href='/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_cajero/reportes/reportes_cajero.html'">
+        Administración de pedidos
+      </button>
+
+      <button id="btnLogout" class="btn btn-danger btn-sm">Cerrar sesión</button>
+    </div>
+  </div>
+</nav>
+  
+
+
+
+  <div class="container mt-4">
+    <h2>Gestión de Pedidos - Cajero</h2>
+
+    <!-- Bloque de clientes -->
+    <section class="mb-4">
+      <h4>Cliente</h4>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="cedulaCliente" placeholder="Ingrese cédula (ej. 28.088.675)">
+        <button class="btn btn-info" id="btnBuscarCliente">Buscar</button>
+        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalRegistroCliente">Registrar Cliente</button>
+      </div>
+      <div id="infoCliente" class="alert alert-light" style="display:none;"></div>
+    </section>
+
+    <!-- Menú: etiqueta horario activo + selector local + contenedor -->
+    <section class="mb-4" id="menuPorCategorias">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="m-0">Menú</h4>
+        <div class="d-flex align-items-center gap-2">
+          <div id="etiquetaHorarioActivo" class="badge bg-info text-dark">Menú activo: Día</div>
+          </select>
+        </div>
+      </div>
+
+      <!-- Aquí se inyectan las categorías y tarjetas (app.js) -->
+      <div id="contenedorMenuCajero" class="row g-3 mb-4"></div>
+    </section>
+
+    <!-- Formulario de pedido -->
+    <form id="formRegistroPedido" class="mb-4">
+      <div class="row g-3">
+        <div class="col-md-12">
+          <label for="metodoPago" class="form-label">Método de pago</label>
+          <select class="form-select" id="metodoPago" required>
+            <option value="">Seleccione...</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+            <option value="Pago Móvil">Pago Móvil</option>
+            <option value="Zelle">Zelle</option>
+            <option value="Transferencia">Transferencia</option>
+          </select>
+        </div>
+      </div>
+      <div class="mt-3">
+        <button type="submit" class="btn btn-success">Confirmar Pedido</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal de registro de cliente -->
+  <div class="modal fade cajero-modal" id="modalRegistroCliente" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title">Registrar Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formRegistroCliente">
+            <div class="mb-3">
+              <label for="nombreClienteReg" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombreClienteReg" name="nombreClienteReg" required>
+            </div>
+            <div class="mb-3">
+              <label for="cedulaClienteReg" class="form-label">Cédula</label>
+              <input type="text" class="form-control" id="cedulaClienteReg" name="cedulaClienteReg" required>
+            </div>
+            <div class="mb-3">
+              <label for="telefonoClienteReg" class="form-label">Teléfono</label>
+              <input type="text" class="form-control" id="telefonoClienteReg" name="telefonoClienteReg" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Guardar Cliente</button>
+          </form>
+          <div id="mensajeRegistroCliente" class="mt-3 text-center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login Cajero</h5>
+        </div>
+        <div class="modal-body">
+          <form id="formLoginCajero">
+            <div class="mb-3">
+              <label for="usuario" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="usuario" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+          </form>
+          <div id="mensajeLogin" class="mt-3 text-center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const usuario = localStorage.getItem("usuarioActivo");
+  const rol = localStorage.getItem("rolActivo");
+
+  if (usuario && rol) {
+    document.getElementById("userName").textContent = usuario;
+    const roleBadge = document.getElementById("roleBadge");
+    roleBadge.textContent = rol.charAt(0).toUpperCase() + rol.slice(1);
+    if (rol === "gerente") {
+      roleBadge.className = "badge bg-warning text-dark me-3";
+    } else if (rol === "cajero") {
+      roleBadge.className = "badge bg-danger me-3";
+    }
+  }
+
+  // Manejo de Cerrar sesión: llamar logout.php por POST, limpiar localStorage y redirigir a index.html
+  const btnLogout = document.getElementById("btnLogout");
+  if (btnLogout) {
+    btnLogout.addEventListener("click", async function(e) {
+      e.preventDefault(); // evitar navegación por defecto si es un <a>
+      try {
+        // Llamada al servidor para destruir sesión y actualizar last_login_at
+        await fetch('/Restaurante_Sonia_Burger/Restaurante_SB/logout.php', {
+          method: 'POST',
+          credentials: 'include'
+        });
+      } catch (err) {
+        // ignorar errores de red; igualmente limpiamos el cliente
+        console.warn('Logout request failed:', err);
+      } finally {
+
+        // Ocultar "Volver" si el rol es cajero (cajero.html)
+document.addEventListener("DOMContentLoaded", function() {
+  try {
+    // Preferimos la sesión del servidor si existe; fallback a localStorage
+    fetch('/Restaurante_Sonia_Burger/Restaurante_SB/verificar_sesion.php', { credentials: 'include' })
+      .then(r => r.json())
+      .then(data => {
+        const role = (data && data.role) ? data.role : (localStorage.getItem('rolActivo') || '');
+        if (role === 'cajero') {
+          // Selector del botón "Volver" en tu navbar
+          const btnVolver = document.querySelector('.btn-back');
+          if (btnVolver) btnVolver.remove();
+
+          // Si hay enlaces "volver" dentro de modales u otros contenedores
+          document.querySelectorAll('.btn-back, .link-back').forEach(el => el.remove());
+        }
+      })
+      .catch(() => {
+        // Fallback: usar localStorage si la petición falla
+        const role = localStorage.getItem('rolActivo') || '';
+        if (role === 'cajero') {
+          document.querySelectorAll('.btn-back, .link-back').forEach(el => el.remove());
+        }
+      });
+  } catch (e) { console.warn('Error ocultando Volver:', e); }
+});
+      }
+    });
+  }
+  
+});
+
+</script>
+<script>
+(function() {
+  const VERIFY_URL = '/Restaurante_Sonia_Burger/Restaurante_SB/verificar_sesion.php';
+  const LOGOUT_URL = '/Restaurante_Sonia_Burger/Restaurante_SB/logout.php';
+  const BACK_SELECTORS = ['.btn-back', '.link-back', 'a.btn-volver', 'button.btn-volver'];
+
+  function removeBackButtons() {
+    BACK_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        try { el.remove(); } catch(e) { el.style.display = 'none'; }
+      });
+    });
+  }
+
+  function applyRole(role) {
+    if (!role) return;
+    const r = String(role).trim().toLowerCase();
+    console.debug('[role-check] detected role:', r);
+    if (r === 'cajero') {
+      removeBackButtons();
+      document.documentElement.setAttribute('data-role-detected', 'cajero');
+    } else {
+      document.documentElement.setAttribute('data-role-detected', r);
+    }
+  }
+
+  async function detectRoleOnce() {
+    try {
+      const resp = await fetch(VERIFY_URL, {
+        credentials: 'include',
+        headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+      });
+      // si no OK, fallback a localStorage
+      if (!resp.ok) throw new Error('no-ok');
+      const json = await resp.json();
+      if (json && json.role) {
+        applyRole(json.role);
+        try { localStorage.setItem('rolActivo', String(json.role)); } catch(e){}
+        return;
+      }
+    } catch (e) {
+      console.warn('[role-check] fetch failed or returned non-json, using localStorage', e);
+    }
+    const roleLS = localStorage.getItem('rolActivo') || '';
+    applyRole(roleLS);
+  }
+
+  // logout único y robusto
+  function setupLogout() {
+    const btnLogout = document.getElementById('btnLogout');
+    if (!btnLogout) { console.warn('[logout] btnLogout not found'); return; }
+
+    // remover listeners previos anónimos (no siempre posible), evitar duplicados con flag
+    if (window.__logoutHandlerAttached) return;
+
+    window.__logoutHandler = async function (e) {
+      e && e.preventDefault();
+      console.debug('[logout] clicked');
+      try {
+        const res = await fetch(LOGOUT_URL, {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+        });
+        console.debug('[logout] fetch status:', res.status);
+      } catch (err) {
+        console.warn('[logout] fetch error:', err);
+      } finally {
+        try {
+          localStorage.removeItem("usuarioActivo");
+          localStorage.removeItem("rolActivo");
+          localStorage.removeItem("usuarioActivoId");
+        } catch(e){}
+        window.location.href = "/Restaurante_Sonia_Burger/Restaurante_SB/gerente/index.html";
+      }
+    };
+
+    btnLogout.addEventListener('click', window.__logoutHandler);
+    window.__logoutHandlerAttached = true;
+    console.debug('[logout] handler attached');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    detectRoleOnce().finally(()=> setTimeout(() => detectRoleOnce(), 200));
+    setupLogout();
+    setTimeout(() => {
+      const detected = (document.documentElement.getAttribute('data-role-detected') || '').toLowerCase();
+      if (detected === 'cajero') removeBackButtons();
+    }, 120);
+  });
+
+  // observar DOM para inyecciones dinámicas
+  const observer = new MutationObserver(() => {
+    const detected = (document.documentElement.getAttribute('data-role-detected') || '').toLowerCase();
+    if (detected === 'cajero') {
+      removeBackButtons();
+      return;
+    }
+    if (!window.__roleCheckScheduled) {
+      window.__roleCheckScheduled = true;
+      setTimeout(() => { detectRoleOnce().finally(()=> window.__roleCheckScheduled = false); }, 300);
+    }
+    if (document.getElementById('btnLogout') && !window.__logoutHandlerAttached) setupLogout();
+  });
+  observer.observe(document.documentElement || document.body, { childList: true, subtree: true });
+
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'rolActivo') applyRole(e.newValue || '');
+    if (e.key === 'usuarioActivo' && !window.__logoutHandlerAttached) setupLogout();
+  });
+})();
+</script>
+
+
+
+
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

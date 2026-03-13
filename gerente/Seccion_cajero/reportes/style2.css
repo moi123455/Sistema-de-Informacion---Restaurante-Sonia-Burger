@@ -1,0 +1,183 @@
+/* ===============================
+   style.css - Reportes Cajero
+   =============================== */
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pedido-cancelado {
+  border-left: 6px solid #dc3545;
+  background-color: #fff5f5;
+}
+
+h2, h4 {
+  color: #fbfdff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Navbar superior */
+.navbar {
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.navbar-text {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.navbar .btn {
+  font-weight: 500;
+}
+
+/* Botón de cierre de sesión */
+#btnCerrarSesion {
+  background-color: #dc3545;
+  border: none;
+}
+
+#btnCerrarSesion:hover {
+  background-color: #c82333;
+}
+
+/* Botón de regresar al menú */
+.navbar .btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+.navbar .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Contenedor de pedidos */
+#contenedorReportesCajero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+/* Tarjetas de pedidos */
+#contenedorReportesCajero .card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contenedorReportesCajero .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+#contenedorReportesCajero .card-body {
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+#contenedorReportesCajero .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+#contenedorReportesCajero p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Estados de pedidos */
+.pedido-pendiente {
+  border-left: 5px solid #ffc107;
+}
+
+.pedido-entregado {
+  border-left: 5px solid #28a745;
+}
+
+.pedido-cancelado {
+  border-left: 5px solid #dc3545;
+}
+
+/* Botón de cierre de caja */
+#btnCierreCaja {
+  background-color: #343a40;
+  color: #ffffff;
+  border: none;
+}
+
+#btnCierreCaja:hover {
+  background-color: #23272b;
+}
+
+/* Mensaje de cierre */
+#mensajeCierre {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #28a745;
+}
+
+/* Modal de edición */
+.modal-content {
+  border-radius: 10px;
+}
+
+
+/* Imagen de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo2.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+}
+
+/* Capa semitransparente para atenuar la foto */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.container, .navbar, .card, header, main {
+  position: relative;
+  z-index: 1;
+}
+/* Forzar texto legible en tarjetas y modales de reportes */
+#contenedorReportesCajero .card,
+#contenedorReportesCajero .card .card-body,
+#detalleModal .modal-body,
+#detalleModal .modal-body * {
+  color: #212529 !important;        /* texto oscuro legible */
+}
+
+/* Si el modal usa header oscuro, mantener header blanco pero body oscuro */
+#detalleModal .modal-header {
+  color: #fff;
+}
+
+/* Asegurar títulos y campos clave legibles */
+#contenedorReportesCajero .card .card-title,
+#detalleModal .modal-body .detalle-titulo,
+#detalleModal .modal-body p,
+#detalleModal .modal-body strong {
+  color: inherit !important;
+}
+
+/* Si prefieres fondo claro dentro del modal */
+#detalleModal .modal-content {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
