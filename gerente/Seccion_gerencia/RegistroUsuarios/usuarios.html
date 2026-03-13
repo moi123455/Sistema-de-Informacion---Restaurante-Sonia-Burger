@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de usuarios del sistema</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="header-container d-flex justify-content-between align-items-center px-3 py-3 bg-dark text-white">
+      <img src="logo.png" alt="Logo" class="cajero-logo" />
+    <a href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_gerencia/gerente.html" class="btn btn-secondary btn-sm">Volver</a>
+
+    <h1 class="header-title text-center flex-grow-1 fs-4">Gestión de usuarios del sistema</h1>
+
+    <div class="d-flex align-items-center">
+      <span id="userName" class="fw-bold me-2"></span>
+      <span id="roleBadge" class="badge me-3"></span>
+      <button id="btnLogout" class="btn btn-danger btn-sm">Cerrar sesión</button>
+    </div>
+  </div>
+</header>
+
+<div class="container mt-4">
+  <div class="mb-3">
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistro">Registrar Usuario</button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre completo</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th>Métricas</th>
+          <th>Teléfono</th>
+          <th>Últ. pedido</th>
+          <th>Últ. conexión</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tablaUsuarios">
+        <!-- Se carga dinámicamente desde app.js -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal: Registrar Usuario -->
+<div class="modal fade" id="modalRegistro" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <form id="formRegistro" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registrar nuevo usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="nombreCompleto" class="form-label">Nombre completo</label>
+          <input type="text" class="form-control" id="nombreCompleto" required>
+        </div>
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="correo" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="text" class="form-control" id="telefono" placeholder="0412xxxxxxx">
+        </div>
+        <div class="mb-3">
+          <label for="rol" class="form-label">Rol</label>
+          <select class="form-select" id="rol" required>
+            <option value="cajero">Cajero</option>
+            <option value="gerente">Gerente</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="clave" class="form-label">Contraseña inicial</label>
+          <input type="password" class="form-control" id="clave" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: Editar Usuario -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <form id="formEditar" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="idUsuarioEditar">
+        <div class="mb-3">
+          <label for="editarNombre" class="form-label">Nombre completo</label>
+          <input type="text" class="form-control" id="editarNombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="editarCorreo" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="editarCorreo" required>
+        </div>
+        <div class="mb-3">
+          <label for="editarTelefono" class="form-label">Teléfono</label>
+          <input type="text" class="form-control" id="editarTelefono">
+        </div>
+        <div class="mb-3">
+          <label for="editarClave" class="form-label">Nueva contraseña</label>
+          <input type="password" class="form-control" id="editarClave">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: Confirmar eliminación -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminar usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Seguro que deseas eliminar este usuario?</p>
+        <input type="hidden" id="idUsuarioEliminar">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Cargar app.js (asegúrate que la ruta es correcta) -->
+<script src="app.js"></script>
+
+<script>
+// Header dinámico y logout que llama al servidor
+document.addEventListener("DOMContentLoaded", function() {
+  const usuario = localStorage.getItem("usuarioActivo");
+  const rol = localStorage.getItem("rolActivo");
+
+  if (usuario && rol) {
+    document.getElementById("userName").textContent = usuario;
+    const roleBadge = document.getElementById("roleBadge");
+    roleBadge.textContent = rol.charAt(0).toUpperCase() + rol.slice(1);
+    if (rol === "gerente") roleBadge.className = "badge bg-warning text-dark me-3";
+    else if (rol === "cajero") roleBadge.className = "badge bg-danger me-3";
+    else roleBadge.className = "badge bg-success me-3";
+  }
+
+  document.getElementById("btnLogout").addEventListener("click", async function() {
+    // doLogout está definido en app.js
+    if (typeof doLogout === 'function') {
+      doLogout();
+    } else {
+      // fallback: llamar logout.php y redirigir
+      try { await fetch('/Restaurante_Sonia_Burger/Restaurante_SB/logout.php', { method: 'POST', credentials: 'include' }); } catch(e){}
+      localStorage.removeItem("usuarioActivo");
+      localStorage.removeItem("rolActivo");
+      localStorage.removeItem("usuarioActivoId");
+      window.location.href = "/Restaurante_Sonia_Burger/Restaurante_SB/index.html";
+    }
+  });
+});
+</script>
+
+</body>
+</html>

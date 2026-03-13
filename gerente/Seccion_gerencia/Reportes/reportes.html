@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes del Gerente</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  
+  <div class="header-container d-flex justify-content-between align-items-center p-3 bg-dark text-white">
+    <img src="logo.png" alt="Logo" class="cajero-logo" />
+    <a id="btnVolverPanel" class="btn btn-outline-light btn-sm me-3" href="/Restaurante_Sonia_Burger/Restaurante_SB/gerente/Seccion_gerencia/gerente.html">Volver al panel</a>
+
+    <h1 class="header-title mx-auto">Reportes del Gerente</h1>
+
+    <div class="d-flex align-items-center">
+      <span id="userName" class="fw-bold me-2">Usuario</span>
+      <span id="roleBadge" class="badge bg-warning text-dark me-3">Gerente</span>
+      <button id="btnLogout" class="btn btn-danger btn-sm">Cerrar sesión</button>
+    </div>
+  </div>
+</header>
+
+<main class="container mt-4">
+  <div class="row">
+    <!-- Pérdidas -->
+    <div class="col-md-3" id="perdidasCol">
+      <h5 class="text-danger">Pérdidas</h5>
+      <div id="perdidasList" class="d-flex flex-column gap-3"></div>
+      <div class="mt-3">
+        <div><strong>Hoy:</strong> <span id="perdidasHoy">Bs 0</span></div>
+        <div><strong>Semana:</strong> <span id="perdidasSemana">Bs 0</span></div>
+        <div><strong>Mes:</strong> <span id="perdidasMes">Bs 0</span></div>
+      </div>
+    </div>
+
+    <!-- Total (centro) -->
+    <div class="col-md-6 text-center d-flex align-items-center" id="totalCol">
+      <div class="totals-wrapper w-100">
+        <h3 class="mb-2 visually-hidden">Total</h3>
+
+        <!-- Neto grande -->
+        <div id="netoAmount" class="fs-2 fw-bold report-card p-3 mb-1 text-center">USD: $0.00 — Bs: 0</div>
+
+        <!-- Mensaje descriptivo -->
+        <div id="netoMessage" class="text-center small text-muted mb-1"></div>
+
+        <!-- Estado (porcentaje) -->
+        <div id="netoStatus" class="mb-2 small text-muted"></div>
+
+        <!-- Totales por periodo -->
+        <div class="row text-center">
+          <div class="col">
+            <div><strong>Hoy:</strong> <span id="netoHoySmall">$0.00</span></div>
+          </div>
+          <div class="col">
+            <div><strong>Semana:</strong> <span id="netoSemana">$0.00</span></div>
+          </div>
+          <div class="col">
+            <div><strong>Mes:</strong> <span id="netoMes">$0.00</span></div>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="center-buttons mt-3">
+          <button id="btnDescargarReporte" class="btn btn-outline-primary btn-sm hide-on-capture">Descargar reporte</button>
+          <button id="btnLimpiarReportes" class="btn btn-outline-danger btn-sm hide-on-capture">Limpiar reportes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ganancias -->
+    <div class="col-md-3" id="gananciasCol">
+      <h5 class="text-success">Ganancias</h5>
+      <div id="gananciasList" class="d-flex flex-column gap-3"></div>
+      <div class="mt-3">
+        <div><strong>Hoy:</strong> <span id="gananciasHoy">Bs 0</span></div>
+        <div><strong>Semana:</strong> <span id="gananciasSemana">Bs 0</span></div>
+        <div><strong>Mes:</strong> <span id="gananciasMes">Bs 0</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Modal detalle (compatibilidad) -->
+<div class="modal fade" id="modalDetalleReporte" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Detalle</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- html2canvas y bootstrap bundle -->
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const usuario = localStorage.getItem("usuarioActivo");
+  const rol = localStorage.getItem("rolActivo");
+
+  if (usuario && rol) {
+    document.getElementById("userName").textContent = usuario;
+    const roleBadge = document.getElementById("roleBadge");
+    roleBadge.textContent = rol.charAt(0).toUpperCase() + rol.slice(1);
+    if (rol === "gerente") {
+      roleBadge.className = "badge bg-warning text-dark me-3";
+    } else if (rol === "cajero") {
+      roleBadge.className = "badge bg-danger me-3";
+    }
+  }
+
+  // Manejo de Cerrar sesión: llamar logout.php por POST, limpiar localStorage y redirigir a index.html
+  const btnLogout = document.getElementById("btnLogout");
+  if (btnLogout) {
+    btnLogout.addEventListener("click", async function(e) {
+      e.preventDefault(); // evitar navegación por defecto si es un <a>
+      try {
+        // Llamada al servidor para destruir sesión y actualizar last_login_at
+        await fetch('/Restaurante_Sonia_Burger/Restaurante_SB/logout.php', {
+          method: 'POST',
+          credentials: 'include'
+        });
+      } catch (err) {
+        // ignorar errores de red; igualmente limpiamos el cliente
+        console.warn('Logout request failed:', err);
+      } finally {
+        // Limpiar estado local y redirigir al index (login)
+        localStorage.removeItem("usuarioActivo");
+        localStorage.removeItem("rolActivo");
+        localStorage.removeItem("usuarioActivoId");
+        window.location.href = "/Restaurante_Sonia_Burger/Restaurante_SB/gerente/index.html";
+      }
+    });
+  }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app_reportes_gerente.js"></script>
+</body>
+</html>

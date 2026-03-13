@@ -1,0 +1,269 @@
+/* style.css - estilos para Reportes del Gerente (header imitado) */
+
+/* Base */
+body { background:#f8f9fa; color:#212529; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; }
+
+/* Header (imitando tu ejemplo) */
+.header-container {
+  background-color: #161414;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fafafa;
+  margin: 0;
+}
+
+/* Botón logout */
+#btnLogout { font-size: 0.9rem; font-weight: bold; }
+
+/* Role badge (bootstrap classes used in HTML/JS) */
+/* Additional styling to match look */
+.role-badge { padding: 6px 10px; border-radius: 6px; font-weight:700; }
+
+/* Totals and cards */
+.card.p-2 { border-radius: 6px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+#gananciasList .card { border-left: 4px solid #28a745; }
+#perdidasList .card  { border-left: 4px solid #dc3545; }
+.report-card { background:#fff; }
+
+/* Totals wrapper */
+#totalCol .totals-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 220px;
+  gap: 6px;
+}
+
+/* Neto grande: evitar salto de línea y centrar */
+#netoAmount {
+  font-size: 1.9rem;
+  line-height: 1.05;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: 6px;
+  display: inline-block;
+  min-width: 420px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 6px;
+}
+
+/* Mensaje descriptivo compacto (3 líneas) */
+#netoMessage {
+  max-width: 520px;
+  margin: 0 auto 6px auto;
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.15;
+  text-align: center;
+}
+
+/* Estado (porcentaje) */
+#netoStatus { font-size: 0.95rem; text-align:center; }
+
+/* Colores para neto grande según clase aplicada por JS */
+#netoAmount.text-success { color: #198754; }
+#netoAmount.text-danger  { color: #dc3545; }
+
+/* Evitar duplicados visibles */
+#netoHoy { display:none; }
+
+/* Ajustes para listas */
+#gananciasList, #perdidasList { max-height: 60vh; overflow:auto; padding-right:6px; }
+
+/* Tarjeta: título y fecha en una sola línea */
+.card .fw-bold { display:block; margin-bottom:4px; }
+.card .small.text-muted { display:block; margin-bottom:6px; color:#6c757d; }
+
+/* Botones */
+.center-buttons { margin-top:12px; display:flex; gap:8px; justify-content:center; }
+.btn-outline-primary { min-width: 140px; }
+.btn-outline-danger  { min-width: 140px; }
+
+/* Responsivo */
+@media (max-width: 991px) {
+  #totalCol { margin-top: 20px; }
+  #gananciasList, #perdidasList { max-height: 40vh; }
+}
+@media (max-width: 767px) {
+  #netoAmount { min-width: 260px; font-size: 1.4rem; }
+  #netoMessage { max-width: 320px; font-size: 0.9rem; }
+}
+/* Logo y botón volver */
+.cajero-logo {
+  height:104px;
+  width:auto;
+  border-radius:198px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border: 0.1px solid rgba(255,255,255,0.03);
+}
+
+/* Imagen de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+}
+
+/* Capa semitransparente para atenuar la foto */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.container, .navbar, .card, header, main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Forzar: tarjetas en negro; resto de UI en blanco; modales intactos ===== */
+
+/* Variables */
+:root{
+  --ui-text: #ffffff;
+  --card-bg-dark: rgba(12,12,12,0.92);
+  --card-border: rgba(255,255,255,0.04);
+  --muted-light: rgba(255,255,255,0.65);
+}
+
+/* 1) Texto general de header y main en blanco (no tocar tarjetas ni modales) */
+header, header * , main, main * , .header-container, .center-buttons, .cajero-topbar {
+  color: var(--ui-text) !important;
+}
+
+/* 2) Forzar que badges, botones y labels fuera de tarjetas sean legibles */
+.badge, .btn, .btn-outline-primary, .btn-outline-danger, .tasa-label, .brand-label, .user-block {
+  color: var(--ui-text) !important;
+}
+
+/* 3) TARJETAS: fondo oscuro y texto blanco dentro de las tarjetas */
+.card,
+#gananciasList .card,
+#perdidasList .card,
+.report-card,
+#netoAmount {
+  background: var(--card-bg-dark) !important;
+  color: var(--ui-text) !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important;
+}
+
+/* Asegurar que todo dentro de .card sea blanco legible */
+.card, .card * {
+  color: var(--ui-text) !important;
+}
+
+/* 4) EXCEPCIÓN: no tocar modales (mantener inputs y labels oscuros) */
+.modal, .modal * , .modal .modal-content {
+  color: #111111 !important;
+}
+.modal .form-control, .modal .form-select {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #ced4da !important;
+}
+
+/* 5) Textos secundarios fuera de tarjetas (muted) */
+.small.text-muted, #netoMessage, #netoStatus {
+  color: var(--muted-light) !important;
+}
+
+/* 6) Fechas y títulos dentro de tarjetas (por si alguna regla previa las oscurece) */
+#gananciasList .card .fw-bold,
+#perdidasList .card .fw-bold,
+#gananciasList .card .small,
+#perdidasList .card .small,
+#contenedorInsumos .card .card-title {
+  color: var(--ui-text) !important;
+}
+
+/* 7) Selects y placeholders fuera de modales */
+select, .form-select, .form-control {
+  color: var(--ui-text) !important;
+}
+.form-select option { background: #121212; color: var(--ui-text) !important; }
+
+/* 8) Mantener pseudo-fondos detrás y no capturando eventos */
+body::before, body::after { pointer-events: none; z-index: -1 !important; }
+/* Forzar visibilidad de estados positivos/negativos en totales */
+#netoAmount.text-success,
+#netoHoySmall.text-success,
+#gananciasHoy.text-success,
+#gananciasSemana.text-success,
+#gananciasMes.text-success {
+  color: #198754 !important; /* verde Bootstrap */
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+#netoAmount.text-danger,
+#netoHoySmall.text-danger,
+#perdidasHoy.text-danger,
+#perdidasSemana.text-danger,
+#perdidasMes.text-danger {
+  color: #dc3545 !important; /* rojo Bootstrap */
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Si usas badges o spans para totales laterales */
+#perdidasCol .totales-valor,
+#gananciasCol .totales-valor {
+  font-weight: 700;
+}
+
+/* Asegurar contraste si alguna regla global fuerza color blanco */
+#perdidasCol .totales-valor.text-danger,
+#gananciasCol .totales-valor.text-success {
+  color: inherit !important;
+}
+/* ===== Clase temporal para captura: reproduce fondo y capa semitransparente ===== */
+.capture-mode::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center center;
+  /* Mantener la misma intensidad que ves en pantalla: ajustar brightness/opacity aquí */
+  filter: blur(8px) brightness(0.45);
+  transform: scale(1.00);
+  z-index: 0;
+  pointer-events: none;
+}
+.capture-mode::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.65));
+  z-index: 0;
+  pointer-events: none;
+}
+/* Asegurar que el contenido quede por encima */
+.capture-mode .container, .capture-mode header, .capture-mode main {
+  position: relative;
+  z-index: 1;
+}
