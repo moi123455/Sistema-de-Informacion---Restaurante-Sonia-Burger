@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Menú Tablet - Restaurante</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 12px; background:#f8f9fa; }
+    .card { cursor: pointer; }
+    .plato-seleccionado { outline: 3px solid #0d6efd; transform: scale(1.02); }
+    .grid { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+    .card { width: 220px; }
+    #topBar { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+  </style>
+</head>
+<body>
+  <div id="topBar">
+    <div><strong>Menú - Tablet</strong></div>
+    <div>
+      <label class="me-2">Caja</label>
+      <select id="selectCaja" class="form-select d-inline-block" style="width:120px">
+        <option value="caja_1">Caja 1</option>
+        <option value="caja_2">Caja 2</option>
+      </select>
+      <button id="btnSetToken" class="btn btn-sm btn-outline-secondary ms-2">Usar token</button>
+    </div>
+  </div>
+
+  <div id="mensaje" class="mb-2"></div>
+  <div id="menu" class="grid"></div>
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="tablet.js"></script>
+</body>
+</html>

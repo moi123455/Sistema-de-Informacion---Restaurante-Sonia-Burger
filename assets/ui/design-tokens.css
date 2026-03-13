@@ -1,0 +1,38 @@
+:root{
+  --bg-dark: #0b0b0b;
+  --surface: #121212;
+  --accent: #FFD166;
+  --accent-2: #FFB703;
+  --text: #F5F5F5;
+  --muted: #BDBDBD;
+  --danger: #FF6B6B;
+  --radius: 10px;
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.6);
+  --focus-accent: rgba(255,209,102,0.18);
+  --logo-scale-default: 1.0;
+  --ui-font: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  --transition-fast: 120ms;
+}
+
+/* Base tipográfica y reset ligero */
+html,body{
+  font-family: var(--ui-font);
+  background: var(--bg-dark);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Escalas recomendadas */
+h1{ font-size: 28px; font-weight:700; color:var(--text); margin:0 0 8px 0; }
+h2{ font-size:22px; font-weight:700; color:var(--text); margin:0 0 10px 0; }
+h3{ font-size:18px; font-weight:600; color:var(--text); margin:0 0 8px 0; }
+p, label, .small { font-size:14px; color:var(--muted); margin:0; }
+
+/* Utilidades */
+.u-radius{ border-radius: var(--radius); }
+.u-shadow{ box-shadow: var(--shadow-lg); }
+.u-transition{ transition: all var(--transition-fast) ease; }
+.hidden{ display:none !important; }
